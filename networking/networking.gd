@@ -18,10 +18,16 @@ enum DIR {
 	DOWN_RIGHT
 }
 
-# Join a host (visual client)
+# Join a host (for audio client use)
 func join_game(ip : String, port : int):
 	var server = NetworkedMultiplayerENet.new()
 	server.create_client(ip, port)
+	get_tree().set_networked_peer(server)
+
+# Host a game (for visual client use)
+func host_game(port : int):
+	var server = NetworkedMultiplayerENet.new()
+	server.create_server(port, 2) # Max 2 players
 	get_tree().set_networked_peer(server)
 
 func _ready():
@@ -69,6 +75,7 @@ remote func start_game():
 # Server tells client to end the game because it won
 remote func game_win():
 	emit_signal("game_finished")
+	get_tree().set_network_peer(null)
 	
 # Call when you want to quit the game
 # Tells the other peer you disconnected automagically
