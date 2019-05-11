@@ -4,6 +4,9 @@ extends Node
 signal connection_fail()
 signal peer_disconnected()
 signal game_finished()
+signal ready_start()
+signal start_game()
+signal direction_warning(direction)
 
 # Enum for directions for warnings
 # Should probably move it out of here
@@ -60,17 +63,17 @@ remote func update_postion(pos_x, pos_y):
 # The audio client calls this on the server to send a warning
 # Use DIR(ection) enum
 remote func send_warning(direction):
-	pass
+	emit_signal("direction_warning", direction)
 	
 # Client tells server that it's ready for the match
 # Will will wait for "start_match" from the server
 remote func ready_to_start():
-	pass
+	emit_signal("ready_start")
 
 # Server tells client to start the match
 # Should wait for "ready_to_start" if hasn't received it yet
 remote func start_game():
-	pass
+	emit_signal("start_game")
 	
 # Server tells client to end the game because it won
 remote func game_win():
