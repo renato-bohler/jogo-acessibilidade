@@ -1,12 +1,16 @@
 extends Node
 
-# Signals for the main game
+# Signals 
+# For pre-game
 signal connection_fail()
 signal peer_disconnected()
 signal game_finished()
 signal ready_start()
 signal start_game()
+
+# In game communication
 signal direction_warning(direction)
+signal new_postion(position)
 
 # Enum for directions for warnings
 # Should probably move it out of here
@@ -57,8 +61,8 @@ func _peer_disconnected():
 	emit_signal("peer_disconnected")
 
 # The server calls this function to update the player position on the audio client 
-remote func update_postion(pos_x, pos_y):
-	pass
+remote func update_postion(pos : Vector2):
+	emit_signal("new_postion", pos)
 	
 # The audio client calls this on the server to send a warning
 # Use DIR(ection) enum
