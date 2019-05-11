@@ -7,6 +7,7 @@ signal peer_disconnected()
 signal game_finished()
 signal ready_start()
 signal start_game()
+signal connected()
 
 # In game communication
 signal direction_warning(direction)
@@ -45,12 +46,13 @@ func _ready():
 	get_tree().connect("connection_failed", self, "_connected_fail")
 	get_tree().connect("server_disconnected", self, "_peer_disconnected")
 	
-
+# Since it's only one server and one client, no need to warn other peers that connection happened,
+# so just pass the signal up for the interface to handle
 func _player_connected(id):
-	pass
+	emit_signal("connected")
 
 func _connected_ok():
-	pass
+	emit_signal("connected")
 
 func _connected_fail():
 	get_tree().set_network_peer(null)
