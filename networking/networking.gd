@@ -1,9 +1,17 @@
 extends Node
 
-# Signals for the main game
+# Signals 
+# For pre-game
 signal connection_fail()
 signal peer_disconnected()
 signal game_finished()
+signal ready_start()
+signal start_game()
+signal connected()
+
+# In game communication
+signal direction_warning(direction)
+signal new_postion(position)
 
 # Enum for directions for warnings
 # Should probably move it out of here
@@ -18,10 +26,16 @@ enum DIR {
 	DOWN_RIGHT
 }
 
-# Join a host (visual client)
+# Join a host (for audio client use)
 func join_game(ip : String, port : int):
 	var server = NetworkedMultiplayerENet.new()
 	server.create_client(ip, port)
+	get_tree().set_networked_peer(server)
+
+# Host a game (for visual client use)
+func host_game(port : int):
+	var server = NetworkedMultiplayerENet.new()
+	server.create_server(port, 2) # Max 2 players
 	get_tree().set_networked_peer(server)
 
 func _ready():
@@ -32,12 +46,13 @@ func _ready():
 	get_tree().connect("connection_failed", self, "_connected_fail")
 	get_tree().connect("server_disconnected", self, "_peer_disconnected")
 	
-
+# Since it's only one server and one client, no need to warn other peers that connection happened,
+# so just pass the signal up for the interface to handle
 func _player_connected(id):
-	pass
+	emit_signal("connected")
 
 func _connected_ok():
-	pass
+	emit_signal("connected")
 
 func _connected_fail():
 	get_tree().set_network_peer(null)
@@ -48,27 +63,28 @@ func _peer_disconnected():
 	emit_signal("peer_disconnected")
 
 # The server calls this function to update the player position on the audio client 
-remote func update_postion(pos_x, pos_y):
-	pass
+remote func update_postion(pos : Vector2):
+	emit_signal("new_postion", pos)
 	
 # The audio client calls this on the server to send a warning
 # Use DIR(ection) enum
 remote func send_warning(direction):
-	pass
+	emit_signal("direction_warning", direction)
 	
 # Client tells server that it's ready for the match
 # Will will wait for "start_match" from the server
 remote func ready_to_start():
-	pass
+	emit_signal("ready_start")
 
 # Server tells client to start the match
 # Should wait for "ready_to_start" if hasn't received it yet
 remote func start_game():
-	pass
+	emit_signal("start_game")
 	
 # Server tells client to end the game because it won
 remote func game_win():
 	emit_signal("game_finished")
+	get_tree().set_network_peer(null)
 	
 # Call when you want to quit the game
 # Tells the other peer you disconnected automagically
