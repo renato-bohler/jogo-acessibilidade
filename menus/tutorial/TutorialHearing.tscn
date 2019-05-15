@@ -5,7 +5,7 @@
 [ext_resource path="res://assets/fonts/dynamic/normal_text.tres" type="DynamicFont" id=3]
 [ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
 
-[node name="PlayScreen" type="Control"]
+[node name="TutorialHearing" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -3.94507

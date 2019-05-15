@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://menus/play/PlayVision.gd" type="Script" id=1]
+[ext_resource path="res://menus/play/connect/InputIPAddress.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/dynamic/menu_buttons.tres" type="DynamicFont" id=3]
 [ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
 
-[node name="PlayScreen" type="Control"]
+[node name="InputIPAddress" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.00012362
@@ -63,6 +63,7 @@ custom_constants/separation = 23
 margin_right = 784.0
 margin_bottom = 51.0
 text = "Iniciar"
+scene_to_load = "res://menus/play/connect/Connecting.tscn"
 
 [node name="BackButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
 margin_top = 74.0
