@@ -1,4 +1,4 @@
-extends "res://menus/MenuButton.gd"
+extends "res://menus/buttons/MenuButton.gd"
 
 # Declare member variables here. Examples:
 # var a = 2

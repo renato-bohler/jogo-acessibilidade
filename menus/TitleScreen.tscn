@@ -45,14 +45,12 @@ alignment = 1
 margin_left = 0.0
 margin_right = 360.0
 rect_min_size = Vector2( 360, 45 )
-scene_to_load = "res://menus/PlayGame.tscn"
 
 [node name="TutorialButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 85.0
 margin_right = 360.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 360, 45 )
-scene_to_load = "res://menus/Tutorial.tscn"
 
 [node name="ExitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
 margin_top = 170.0

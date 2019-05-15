@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://menus/PlayVision.gd" type="Script" id=1]
+[ext_resource path="res://menus/play/PlayVision.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/dynamic/menu_buttons.tres" type="DynamicFont" id=3]
 [ext_resource path="res://menus/buttons/StartButton.tscn" type="PackedScene" id=4]
@@ -68,4 +68,4 @@ margin_bottom = 51.0
 margin_top = 74.0
 margin_right = 784.0
 margin_bottom = 125.0
-scene_to_load = "res://menus/PlayGame.tscn"
+scene_to_load = "res://menus/play/PlayGame.tscn"
