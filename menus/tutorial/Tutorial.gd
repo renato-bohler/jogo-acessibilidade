@@ -7,7 +7,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Focus the first button on the menu
-	$Menu/CenterRow/Buttons/VisionModeButton.grab_focus()
+	$Menu/CenterRow/Buttons/ContinueButton.grab_focus()
 	
 	# Connect every press event to change scene accordingly
 	for button in $Menu/CenterRow/Buttons.get_children():

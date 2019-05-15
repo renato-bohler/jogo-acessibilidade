@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menus/play/PlayVision.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/dynamic/menu_buttons.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menus/buttons/StartButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menus/buttons/BackButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
 
 [node name="PlayScreen" type="Control"]
 anchor_right = 1.0
@@ -63,9 +62,11 @@ custom_constants/separation = 23
 [node name="StartButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
 margin_right = 784.0
 margin_bottom = 51.0
+text = "Iniciar"
 
-[node name="BackButton" parent="Menu/Buttons" instance=ExtResource( 5 )]
+[node name="BackButton" parent="Menu/Buttons" instance=ExtResource( 4 )]
 margin_top = 74.0
 margin_right = 784.0
 margin_bottom = 125.0
+text = "Voltar"
 scene_to_load = "res://menus/play/PlayGame.tscn"

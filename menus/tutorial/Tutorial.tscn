@@ -1,24 +1,23 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://menus/tutorial/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
-[ext_resource path="res://menus/buttons/VisionModeButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://menus/buttons/HearingModeButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://menus/buttons/BackButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/dynamic/normal_text.tres" type="DynamicFont" id=3]
+[ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
 
 [node name="PlayScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1.36035
-margin_right = -1.36035
+margin_left = -3.94507
+margin_right = -3.94507
 script = ExtResource( 1 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
-margin_left = 120.0
+margin_left = 118.708
 margin_top = 80.0
-margin_right = 904.0
+margin_right = 902.708
 margin_bottom = 520.0
-custom_constants/separation = 95
+custom_constants/separation = 30
 
 [node name="Title" type="Label" parent="Menu"]
 margin_right = 784.0
@@ -28,32 +27,39 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Tutorial"
 align = 1
 
-[node name="CenterRow" type="HBoxContainer" parent="Menu"]
-margin_top = 169.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Menu"]
+margin_top = 104.0
 margin_right = 784.0
-margin_bottom = 390.0
+margin_bottom = 274.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = 7
+text = "    Bem vindo ao Monstro Invisível. Neste jogo, duas pessoas cooperam para atingir o mesmo objetivo: fugir da sala assombrada por monstros que não podem ser vistos. Uma das pessoas possui somente a visão da sala e controla os movimentos do personagem, enquanto a outra possui somente a audição do ambiente, e indica de qual direção está ouvindo os monstros invisíveis."
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+margin_top = 304.0
+margin_right = 784.0
+margin_bottom = 440.0
 alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
-margin_left = 243.0
-margin_right = 540.0
-margin_bottom = 221.0
+margin_left = 284.0
+margin_right = 500.0
+margin_bottom = 136.0
 custom_constants/separation = 34
 alignment = 1
 
-[node name="VisionModeButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 3 )]
-margin_right = 297.0
+[node name="ContinueButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+margin_right = 216.0
 margin_bottom = 51.0
-scene_to_load = "res://menus/tutorial/TutorialVision.tscn"
+text = "Continuar"
+scene_to_load = "res://menus/tutorial/TutorialSelect.tscn"
 
-[node name="HearingModeButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+[node name="BackButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 85.0
-margin_right = 297.0
+margin_right = 216.0
 margin_bottom = 136.0
-scene_to_load = "res://menus/tutorial/TutorialHearing.tscn"
-
-[node name="BackButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 5 )]
-margin_top = 170.0
-margin_right = 297.0
-margin_bottom = 221.0
+text = "Voltar"
 scene_to_load = "res://menus/TitleScreen.tscn"

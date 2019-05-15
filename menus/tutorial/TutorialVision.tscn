@@ -3,7 +3,7 @@
 [ext_resource path="res://menus/tutorial/TutorialVision.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/dynamic/normal_text.tres" type="DynamicFont" id=3]
-[ext_resource path="res://menus/buttons/BackButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
 
 [node name="PlayScreen" type="Control"]
 anchor_right = 1.0
@@ -56,4 +56,5 @@ alignment = 1
 [node name="BackButton" parent="Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_right = 135.0
 margin_bottom = 51.0
-scene_to_load = "res://menus/tutorial/Tutorial.tscn"
+text = "Voltar"
+scene_to_load = "res://menus/tutorial/TutorialSelect.tscn"
