@@ -19,7 +19,12 @@ config/name="jogo-acessibilidade"
 run/main_scene="res://menus/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/height=768
+
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_clear_color=Color( 0.835294, 0.835294, 0.835294, 1 )
 environment/default_environment="res://default_env.tres"

@@ -1,6 +1,6 @@
 extends Node
 
-var tile_size = Vector2(64,64)
+var tile_size = Vector2(128,128)
 onready var texture = $Sprite.texture
 
 func _ready():
@@ -17,4 +17,4 @@ func _ready():
 			ts.tile_set_texture(id, texture)
 			ts.tile_set_region(id, region)
 			
-	ResourceSaver.save("res://terrain/terrain_tiles.tres", ts)
+	ResourceSaver.save("res://terrain/terrain_tiles2.tres", ts)
