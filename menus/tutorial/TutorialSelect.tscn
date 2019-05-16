@@ -68,3 +68,8 @@ margin_right = 297.0
 margin_bottom = 221.0
 text = "Voltar"
 scene_to_load = "res://menus/TitleScreen.tscn"
+
+[node name="Speaker" type="AudioStreamPlayer" parent="."]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/VisionModeButton" to="." method="_on_VisionModeButton_focus_entered"]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/HearingModeButton" to="." method="_on_HearingModeButton_focus_entered"]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/BackButton" to="." method="_on_BackButton_focus_entered"]

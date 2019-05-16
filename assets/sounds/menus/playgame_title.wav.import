@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/playgame_title.wav-cf5156d112d129f6361d708d7c85a064.sample"
+
+[deps]
+
+source_file="res://assets/sounds/menus/playgame_title.wav"
+dest_files=[ "res://.import/playgame_title.wav-cf5156d112d129f6361d708d7c85a064.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -56,4 +56,9 @@ margin_top = 170.0
 margin_right = 170.0
 margin_bottom = 221.0
 text = "Sair"
+
+[node name="Speaker" type="AudioStreamPlayer" parent="."]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/PlayButton" to="." method="_on_PlayButton_focus_entered"]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/TutorialButton" to="." method="_on_TutorialButton_focus_entered"]
+[connection signal="focus_entered" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_focus_entered"]
 [connection signal="pressed" from="Menu/CenterRow/Buttons/ExitButton" to="." method="_on_ExitButton_pressed"]
