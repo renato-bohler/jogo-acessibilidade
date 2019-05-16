@@ -1,15 +1,15 @@
-extends Control
+extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Animate the loading icon
-	$Menu/LoadingContainer/Loading/AnimationPlayer.play("Rotate")
+	$WaitingConnection/Menu/LoadingContainer/Loading/AnimationPlayer.play("Rotate")
 
-	# Focus the IP input
-	$Menu/Buttons/BackButton.grab_focus()
+	# Focus the back button
+	$WaitingConnection/Menu/Buttons/BackButton.grab_focus()
 	
 	# Connect every press event to change scene accordingly
-	for button in $Menu/Buttons.get_children():
+	for button in $WaitingConnection/Menu/Buttons.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
 
 func _on_Button_pressed(scene_to_load):
