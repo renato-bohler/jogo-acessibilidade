@@ -4,8 +4,8 @@ var mechanics_instance
 var player
 
 func _ready():
-	player = preload("res://Player.gd").new()
-	mechanics_instance = load("res://mechanics.gd").new()
+	player = preload("res://player/Player.gd").new()
+	mechanics_instance = load("res://player/mechanics.gd").new()
 	yield(get_tree(), "idle_frame")
 	get_tree().call_group("monster", "set_player", self)
 	

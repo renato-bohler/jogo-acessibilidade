@@ -1,5 +1,13 @@
 extends Node
 
+enum PlayerActions {
+	MOVE_UP,
+	MOVE_LEFT,
+	MOVE_RIGHT,
+	MOVE_DOWN,
+	NO_ACTION
+}
+
 func handle_movement(player):
 	var action = self.get_player_action()
 	player = self.handle_action_selected(player, action)
@@ -52,14 +60,14 @@ func get_player_action():
 	return PlayerActions.NO_ACTION
 
 func is_move_up():
-	return Input.is_action_pressed("move_up")
+	return Input.is_action_pressed("ui_up")
 
 func is_move_down():
-	return Input.is_action_pressed("move_down")
+	return Input.is_action_pressed("ui_down")
 	
 func is_move_left():
-	return Input.is_action_pressed("move_left")
+	return Input.is_action_pressed("ui_left")
 	
 func is_move_right():
-	return Input.is_action_pressed("move_right")
+	return Input.is_action_pressed("ui_right")
 	
