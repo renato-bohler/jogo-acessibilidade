@@ -8,25 +8,40 @@ func _play_sound(filename, type = "wav"):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Connect every press event to change scene accordingly
-	for button in $WaitingConnection/Menu/Buttons.get_children():
+	for button in $InputIPAddress/Menu/Buttons.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
 	
-	# Animate the loading icon
-	$WaitingConnection/Menu/LoadingContainer/Loading/AnimationPlayer.play("Rotate")
-
-	# Focus the back button
-	var focus = $WaitingConnection/Menu/Buttons/BackButton
-	focus.grab_focus()
+	# Connect every press event to change scene accordingly
+	for button in $Connecting/Menu/Buttons.get_children():
+		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
 	
-	_play_sound("waitingforplayer")
+	# Focus the IP input
+	var focus = $InputIPAddress/Menu/Input/IPAddress
+	focus.grab_focus()
+
+func _on_Button_pressed(scene_to_load):
+	get_tree().change_scene(scene_to_load)
+
+func _on_IPAddress_focus_entered():
+	_play_sound("ipaddress")
+
+func _on_ConnectButton_focus_entered():
+	_play_sound("start")
+
+func _on_BackButton_focus_entered():
+	_play_sound("back")
+
+func _on_ConnectButton_pressed():
+	$InputIPAddress.hide()
+	$Connecting/Menu/LoadingContainer/Loading/AnimationPlayer.play("Rotate")
+	$Connecting/Menu/Buttons/BackButton.grab_focus()
+	$Connecting.show()
+	_play_sound("connecting")
 	yield($Speaker, "finished")
 	_play_sound("abort")
 	yield($Speaker, "finished")
 	_play_sound("tic_toc", "ogg")
-	_open_server()
+	_connect($InputIPAddress/Menu/Input/IPAddress.text)
 
-func _on_Button_pressed(scene_to_load):
-	get_tree().change_scene(scene_to_load)
-	
-func _open_server():
-	print('TODO: open server')
+func _connect(ipAddress):
+	print("TODO: connect to the IP address: %s" % ipAddress)

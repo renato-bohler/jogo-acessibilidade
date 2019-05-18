@@ -1,12 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://menus/play/connect/PlayHearing.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
-[ext_resource path="res://assets/loading.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/dynamic/menu_buttons.tres" type="DynamicFont" id=3]
 [ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/loading.png" type="Texture" id=5]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Rotate"
+[sub_resource type="GDScript" id=1]
+script/source = "extends \"res://menus/buttons/MenuButton.gd\"
+
+func _on_ConnectButton_pressed():
+	get_tree()"
+
+[sub_resource type="Animation" id=2]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_rotation")
@@ -21,10 +27,10 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="PlayHearing" type="Control"]
+[node name="PlayVision" type="Control"]
 script = ExtResource( 1 )
 
-[node name="WaitingConnection" type="Control" parent="."]
+[node name="InputIPAddress" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.00012362
@@ -32,7 +38,76 @@ margin_top = -1.36038
 margin_right = 0.00012207
 margin_bottom = -1.36035
 
-[node name="Menu" type="VBoxContainer" parent="WaitingConnection"]
+[node name="Menu" type="VBoxContainer" parent="InputIPAddress"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 904.0
+margin_bottom = 520.0
+custom_constants/separation = 68
+
+[node name="Title" type="Label" parent="InputIPAddress/Menu"]
+margin_right = 784.0
+margin_bottom = 74.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Modo audição"
+align = 1
+
+[node name="Input" type="VBoxContainer" parent="InputIPAddress/Menu"]
+margin_top = 142.0
+margin_right = 784.0
+margin_bottom = 197.0
+
+[node name="IPAddress" type="LineEdit" parent="InputIPAddress/Menu/Input"]
+margin_right = 784.0
+margin_bottom = 55.0
+custom_fonts/font = ExtResource( 3 )
+align = 1
+max_length = 15
+placeholder_text = "255.255.255.255"
+caret_blink = true
+caret_blink_speed = 0.5
+
+[node name="Label" type="Label" parent="InputIPAddress/Menu/Input/IPAddress"]
+anchor_right = 1.0
+margin_top = -45.7831
+margin_bottom = -0.783142
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Endereço IP:"
+align = 1
+valign = 1
+
+[node name="Buttons" type="VBoxContainer" parent="InputIPAddress/Menu"]
+margin_top = 265.0
+margin_right = 784.0
+margin_bottom = 390.0
+custom_constants/separation = 23
+
+[node name="ConnectButton" parent="InputIPAddress/Menu/Buttons" instance=ExtResource( 4 )]
+margin_right = 784.0
+margin_bottom = 51.0
+text = "Iniciar"
+script = SubResource( 1 )
+
+[node name="BackButton" parent="InputIPAddress/Menu/Buttons" instance=ExtResource( 4 )]
+margin_top = 74.0
+margin_right = 784.0
+margin_bottom = 125.0
+text = "Voltar"
+scene_to_load = "res://menus/play/PlayGame.tscn"
+
+[node name="Connecting" type="Control" parent="."]
+editor/display_folded = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.00024724
+margin_top = -2.72076
+margin_right = 0.000244141
+margin_bottom = -2.72076
+
+[node name="Menu" type="VBoxContainer" parent="Connecting"]
 margin_left = 118.708
 margin_top = 78.7076
 margin_right = 902.708
@@ -40,41 +115,45 @@ margin_bottom = 518.708
 custom_constants/separation = 68
 alignment = 1
 
-[node name="Title" type="Label" parent="WaitingConnection/Menu"]
+[node name="Title" type="Label" parent="Connecting/Menu"]
 margin_top = 12.0
 margin_right = 784.0
 margin_bottom = 86.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Aguardando jogador..."
+text = "Conectando..."
 align = 1
 
-[node name="LoadingContainer" type="HBoxContainer" parent="WaitingConnection/Menu"]
+[node name="LoadingContainer" type="HBoxContainer" parent="Connecting/Menu"]
 margin_top = 154.0
 margin_right = 784.0
 margin_bottom = 308.0
 alignment = 1
 
-[node name="Loading" type="TextureRect" parent="WaitingConnection/Menu/LoadingContainer"]
+[node name="Loading" type="TextureRect" parent="Connecting/Menu/LoadingContainer"]
 margin_left = 317.0
 margin_right = 467.0
 margin_bottom = 154.0
 rect_pivot_offset = Vector2( 75, 77 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WaitingConnection/Menu/LoadingContainer/Loading"]
-anims/Rotate = SubResource( 1 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Connecting/Menu/LoadingContainer/Loading"]
+anims/Rotate = SubResource( 2 )
 
-[node name="Buttons" type="VBoxContainer" parent="WaitingConnection/Menu"]
+[node name="Buttons" type="VBoxContainer" parent="Connecting/Menu"]
 margin_top = 376.0
 margin_right = 784.0
 margin_bottom = 427.0
 custom_constants/separation = 23
 
-[node name="BackButton" parent="WaitingConnection/Menu/Buttons" instance=ExtResource( 4 )]
+[node name="BackButton" parent="Connecting/Menu/Buttons" instance=ExtResource( 4 )]
 margin_right = 784.0
 margin_bottom = 51.0
 text = "Voltar"
 scene_to_load = "res://menus/play/PlayGame.tscn"
 
 [node name="Speaker" type="AudioStreamPlayer" parent="."]
+[connection signal="focus_entered" from="InputIPAddress/Menu/Input/IPAddress" to="." method="_on_IPAddress_focus_entered"]
+[connection signal="focus_entered" from="InputIPAddress/Menu/Buttons/ConnectButton" to="." method="_on_ConnectButton_focus_entered"]
+[connection signal="pressed" from="InputIPAddress/Menu/Buttons/ConnectButton" to="." method="_on_ConnectButton_pressed"]
+[connection signal="focus_entered" from="InputIPAddress/Menu/Buttons/BackButton" to="." method="_on_BackButton_focus_entered"]
