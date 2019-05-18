@@ -21,7 +21,8 @@ func _ready():
 		_play_sound("playgame")
 
 func _on_Button_pressed(scene_to_load):
-	get_tree().change_scene(scene_to_load)
+	if (scene_to_load):
+		get_tree().change_scene(scene_to_load)
 
 func _on_ExitButton_pressed():
 	get_tree().quit()

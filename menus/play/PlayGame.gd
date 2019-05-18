@@ -21,7 +21,8 @@ func _ready():
 		_play_sound("playvision")
 
 func _on_Button_pressed(scene_to_load):
-	get_tree().change_scene(scene_to_load)
+	if (scene_to_load):
+		get_tree().change_scene(scene_to_load)
 
 func _on_VisionModeButton_focus_entered():
 	_play_sound("playvision")

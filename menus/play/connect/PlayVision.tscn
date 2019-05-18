@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ 0.0, 360.0 ]
 }
 
-[node name="PlayHearing" type="Control"]
+[node name="PlayVision" type="Control"]
 script = ExtResource( 1 )
 
 [node name="WaitingConnection" type="Control" parent="."]
