@@ -43,7 +43,7 @@ func _on_BackButton_focus_entered():
 func _on_IPAddress_text_entered(new_text):
 	_transition_to_Connect()
 
-func _on_ConnectButon_presser():
+func _on_ConnectButton_pressed():
 	_transition_to_Connect()
 
 func _transition_to_Connect():
