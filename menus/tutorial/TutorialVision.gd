@@ -1,9 +1,13 @@
 extends Control
 
+onready var speaker = get_node("/root/Speaker")
+onready var sound_navigation = get_node("/root/SoundNavigation")
+
 func _play_sound(filename):
-	var vstream = load("res://assets/sounds/menus/%s.wav" % filename)
-	$Speaker.set_stream(vstream)
-	$Speaker.play()
+	if (sound_navigation.pressed):
+		var vstream = load("res://assets/sounds/menus/%s.wav" % filename)
+		speaker.set_stream(vstream)
+		speaker.play()
 
 func _ready():
 	# Connect every press event to change scene accordingly
@@ -16,7 +20,7 @@ func _ready():
 	
 	# Play the title sound and wait
 	_play_sound("tutorial_vision")
-	yield($Speaker, "finished")
+	yield(speaker, "finished")
 	if get_focus_owner() == focus:
 		_play_sound("back")
 

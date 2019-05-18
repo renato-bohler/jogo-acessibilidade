@@ -76,5 +76,3 @@ margin_right = 784.0
 margin_bottom = 51.0
 text = "Voltar"
 scene_to_load = "res://menus/play/PlayGame.tscn"
-
-[node name="Speaker" type="AudioStreamPlayer" parent="."]

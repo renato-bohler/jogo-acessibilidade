@@ -1,9 +1,13 @@
 extends Control
 
+onready var speaker = get_node("/root/Speaker")
+onready var sound_navigation = get_node("/root/SoundNavigation")
+
 func _play_sound(filename, type = "wav"):
-	var vstream = load("res://assets/sounds/menus/{filename}.{type}".format({"filename": filename, "type": type}))
-	$Speaker.set_stream(vstream)
-	$Speaker.play()
+	if (sound_navigation.pressed):
+		var vstream = load("res://assets/sounds/menus/{filename}.{type}".format({"filename": filename, "type": type}))
+		speaker.set_stream(vstream)
+		speaker.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,9 +23,9 @@ func _ready():
 	focus.grab_focus()
 	
 	_play_sound("waitingforplayer")
-	yield($Speaker, "finished")
+	yield(speaker, "finished")
 	_play_sound("abort")
-	yield($Speaker, "finished")
+	yield(speaker, "finished")
 	_play_sound("tic_toc", "ogg")
 	_open_server()
 

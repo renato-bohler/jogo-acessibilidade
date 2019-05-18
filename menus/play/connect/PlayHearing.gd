@@ -1,9 +1,13 @@
 extends Control
 
+onready var speaker = get_node("/root/Speaker")
+onready var sound_navigation = get_node("/root/SoundNavigation")
+
 func _play_sound(filename, type = "wav"):
-	var vstream = load("res://assets/sounds/menus/{filename}.{type}".format({"filename": filename, "type": type}))
-	$Speaker.set_stream(vstream)
-	$Speaker.play()
+	if (sound_navigation.pressed):
+		var vstream = load("res://assets/sounds/menus/{filename}.{type}".format({"filename": filename, "type": type}))
+		speaker.set_stream(vstream)
+		speaker.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,7 +42,10 @@ func _on_BackButton_focus_entered():
 
 func _on_IPAddress_text_entered(new_text):
 	_transition_to_Connect()
-	
+
+func _on_ConnectButon_presser():
+	_transition_to_Connect()
+
 func _transition_to_Connect():
 	# Hide other nodes
 	$InputIPAddress.hide()
@@ -51,9 +58,9 @@ func _transition_to_Connect():
 	
 	# Play sounds
 	_play_sound("connecting")
-	yield($Speaker, "finished")
+	yield(speaker, "finished")
 	_play_sound("abort")
-	yield($Speaker, "finished")
+	yield(speaker, "finished")
 	_play_sound("tic_toc", "ogg")
 	
 	# Connect to the provided IP Address
@@ -62,13 +69,13 @@ func _transition_to_Connect():
 func _connect(ipAddress):
 	print("TODO: connect to the IP address: %s" % ipAddress)
 	# Only for debugging purposes:
-	$Timer.connect("timeout", self, "_connect_error")
+	$Timer.connect("timeout", self, "_transition_to_ConnectionError")
 	$Timer.set_wait_time(3)
 	$Timer.start()
 
-func _connect_error():
+func _transition_to_ConnectionError():
 	# Stop tic-toc
-	$Speaker.stop()
+	speaker.stop()
 	
 	# Hide other nodes
 	$InputIPAddress.hide()
@@ -83,7 +90,7 @@ func _connect_error():
 	
 	# Play sounds
 	_play_sound("connectionerror_text")
-	yield($Speaker, "finished")
+	yield(speaker, "finished")
 	if get_focus_owner() == focus:
 		_play_sound("retry")
 

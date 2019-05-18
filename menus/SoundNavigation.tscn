@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/dynamic/normal_text.tres" type="DynamicFont" id=1]
+[ext_resource path="res://menus/SoundNavigation.gd" type="Script" id=2]
+
+[sub_resource type="InputEventKey" id=1]
+scancode = 77
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[node name="SoundNavigation" type="CheckButton"]
+margin_left = 710.975
+margin_top = -1.10803
+margin_right = 1027.98
+margin_bottom = 38.892
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover_pressed = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+pressed = true
+shortcut = SubResource( 2 )
+text = "Navegação por som [M]"
+flat = true
+align = 2
+script = ExtResource( 2 )
+[connection signal="toggled" from="." to="." method="_on_SoundNavigation_toggled"]

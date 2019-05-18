@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://menus/play/connect/PlayHearing.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/loading.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/dynamic/normal_text.tres" type="DynamicFont" id=6]
-[ext_resource path="res://menus/buttons/MenuButton.gd" type="Script" id=7]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends \"res://menus/buttons/MenuButton.gd\"
@@ -202,31 +201,17 @@ margin_bottom = 136.0
 custom_constants/separation = 34
 alignment = 1
 
-[node name="RetryButton" type="Button" parent="ConnectionError/Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+[node name="RetryButton" parent="ConnectionError/Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_right = 372.0
 margin_bottom = 51.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.2, 0.00784314, 0.00784314, 1 )
-custom_colors/font_color_pressed = Color( 0.627451, 0.133333, 0.133333, 1 )
 text = "Tentar novamente"
-flat = true
-script = ExtResource( 7 )
 
-[node name="BackButton" type="Button" parent="ConnectionError/Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
+[node name="BackButton" parent="ConnectionError/Menu/CenterRow/Buttons" instance=ExtResource( 4 )]
 margin_top = 85.0
 margin_right = 372.0
 margin_bottom = 136.0
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 0.2, 0.00784314, 0.00784314, 1 )
-custom_colors/font_color_pressed = Color( 0.627451, 0.133333, 0.133333, 1 )
 text = "Voltar"
-flat = true
-script = ExtResource( 7 )
 scene_to_load = "res://menus/play/PlayGame.tscn"
-
-[node name="Speaker" type="AudioStreamPlayer" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

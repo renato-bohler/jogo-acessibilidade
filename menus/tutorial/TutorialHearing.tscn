@@ -58,6 +58,4 @@ margin_right = 135.0
 margin_bottom = 51.0
 text = "Voltar"
 scene_to_load = "res://menus/tutorial/TutorialSelect.tscn"
-
-[node name="Speaker" type="AudioStreamPlayer" parent="."]
 [connection signal="focus_entered" from="Menu/CenterRow/Buttons/BackButton" to="." method="_on_BackButton_focus_entered"]
