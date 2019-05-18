@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/playhearing.ogg-7a80e6b9091d4281ef5910966bb56abe.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/menus/playhearing.ogg"
+dest_files=[ "res://.import/playhearing.ogg-7a80e6b9091d4281ef5910966bb56abe.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

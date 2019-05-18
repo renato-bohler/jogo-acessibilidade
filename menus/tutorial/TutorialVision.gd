@@ -5,7 +5,7 @@ onready var sound_navigation = get_node("/root/SoundNavigation")
 
 func _play_sound(filename):
 	if (sound_navigation.pressed):
-		var vstream = load("res://assets/sounds/menus/%s.wav" % filename)
+		var vstream = load("res://assets/sounds/menus/%s.ogg" % filename)
 		speaker.set_stream(vstream)
 		speaker.play()
 

@@ -3,7 +3,7 @@ extends Control
 onready var speaker = get_node("/root/Speaker")
 onready var sound_navigation = get_node("/root/SoundNavigation")
 
-func _play_sound(filename, type = "wav"):
+func _play_sound(filename, type = "ogg"):
 	if (sound_navigation.pressed):
 		var vstream = load("res://assets/sounds/menus/{filename}.{type}".format({"filename": filename, "type": type}))
 		speaker.set_stream(vstream)
