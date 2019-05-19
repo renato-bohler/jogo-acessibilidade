@@ -1,5 +1,7 @@
 extends Control
 
+const PORT = 7788
+
 onready var speaker = get_node("/root/Speaker")
 onready var sound_navigation = get_node("/root/SoundNavigation")
 
@@ -18,6 +20,11 @@ func _ready():
 	# Animate the loading icon
 	$WaitingConnection/Menu/LoadingContainer/Loading/AnimationPlayer.play("Rotate")
 	
+	# Networking signal connections should go here
+	# ============================================
+	Networking.connect("connected", self, "_peer_connected")
+	# ============================================
+	
 	# Focus the back button
 	var focus = $WaitingConnection/Menu/Buttons/BackButton
 	focus.grab_focus()
@@ -34,4 +41,7 @@ func _on_Button_pressed(scene_to_load):
 		get_tree().change_scene(scene_to_load)
 	
 func _open_server():
-	print('TODO: open server')
+	Networking.host_game(PORT)
+
+func _peer_connected(id):
+	print("Received a peer connection, their id is: " + id)

@@ -1,5 +1,7 @@
 extends Control
 
+const PORT = 7788 # Probably shouldn't be const but ok for now
+
 onready var speaker = get_node("/root/Speaker")
 onready var sound_navigation = get_node("/root/SoundNavigation")
 
@@ -22,6 +24,12 @@ func _ready():
 	# Connect every press event to change scene accordingly
 	for button in $ConnectionError/Menu/CenterRow/Buttons.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
+	
+	# Networking signal connections should go here
+	# ============================================
+	Networking.connect("connection_fail", self, "_transition_to_ConnectionError")
+	Networking.connect("connected", self, "_connected_to_server")
+	# ============================================
 	
 	# Focus the IP input
 	var focus = $InputIPAddress/Menu/Input/IPAddress
@@ -62,16 +70,10 @@ func _transition_to_Connect():
 	_play_sound("abort")
 	yield(speaker, "finished")
 	_play_sound("tic_toc", "ogg")
-	
-	# Connect to the provided IP Address
-	_connect($InputIPAddress/Menu/Input/IPAddress.text)
 
-func _connect(ipAddress):
-	print("TODO: connect to the IP address: %s" % ipAddress)
-	# Only for debugging purposes:
-	$Timer.connect("timeout", self, "_transition_to_ConnectionError")
-	$Timer.set_wait_time(3)
-	$Timer.start()
+	# Connect to the provided IP Address
+	Networking.join_game($InputIPAddress/Menu/Input/IPAddress.text, PORT)
+
 
 func _transition_to_ConnectionError():
 	# Stop tic-toc
@@ -93,6 +95,10 @@ func _transition_to_ConnectionError():
 	yield(speaker, "finished")
 	if get_focus_owner() == focus:
 		_play_sound("retry")
+		
+func _connected_to_server(id):
+	print("Connected to server, ID should be 1: " + id)
+	_play_sound("ding")
 
 func _on_RetryButton_focus_entered():
 	_play_sound("retry")

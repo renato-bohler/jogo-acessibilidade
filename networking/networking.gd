@@ -7,7 +7,7 @@ signal peer_disconnected()
 signal game_finished()
 signal ready_start()
 signal start_game()
-signal connected()
+signal connected(id)
 
 # In game communication
 signal direction_warning(direction)
@@ -30,13 +30,13 @@ enum DIR {
 func join_game(ip : String, port : int):
 	var server = NetworkedMultiplayerENet.new()
 	server.create_client(ip, port)
-	get_tree().set_networked_peer(server)
+	get_tree().set_network_peer(server)
 
 # Host a game (for visual client use)
 func host_game(port : int):
 	var server = NetworkedMultiplayerENet.new()
 	server.create_server(port, 2) # Max 2 players
-	get_tree().set_networked_peer(server)
+	get_tree().set_network_peer(server)
 
 func _ready():
 	# Connecting networking signals
@@ -49,10 +49,10 @@ func _ready():
 # Since it's only one server and one client, no need to warn other peers that connection happened,
 # so just pass the signal up for the interface to handle
 func _player_connected(id):
-	emit_signal("connected")
+	emit_signal("connected", id)
 
 func _connected_ok():
-	emit_signal("connected")
+	emit_signal("connected", 1)
 
 func _connected_fail():
 	get_tree().set_network_peer(null)
