@@ -62,7 +62,7 @@ func _transition_to_Connect():
 	yield(speaker, "finished")
 	speaker.play_sound("abort")
 	yield(speaker, "finished")
-	speaker.play_sound("tic_toc", "ogg")
+	speaker.play_sound("tic_toc")
 
 	# Connect to the provided IP Address
 	Networking.join_game($InputIPAddress/Menu/Input/IPAddress.text, PORT)

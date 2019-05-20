@@ -26,7 +26,7 @@ func _ready():
 	yield(speaker, "finished")
 	speaker.play_sound("abort")
 	yield(speaker, "finished")
-	speaker.play_sound("tic_toc", "ogg")
+	speaker.play_sound("tic_toc")
 	_open_server()
 
 func _on_Button_pressed(scene_to_load):
