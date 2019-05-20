@@ -1,13 +1,6 @@
 extends Control
 
 onready var speaker = get_node("/root/Speaker")
-onready var sound_navigation = get_node("/root/SoundNavigation")
-
-func _play_sound(filename):
-	if (sound_navigation.pressed):
-		var vstream = load("res://assets/sounds/menus/%s.ogg" % filename)
-		speaker.set_stream(vstream)
-		speaker.play()
 
 func _ready():
 		# Connect every press event to change scene accordingly
@@ -19,20 +12,20 @@ func _ready():
 	focus.grab_focus()
 	
 	# Play the title sound and wait
-	_play_sound("tutorial_select")
+	speaker.play_sound("tutorial_select")
 	yield(speaker, "finished")
 	if get_focus_owner() == focus:
-		_play_sound("tutorialvision")
+		speaker.play_sound("tutorialvision")
 
 func _on_Button_pressed(scene_to_load):
 	if (scene_to_load):
 		get_tree().change_scene(scene_to_load)
 
 func _on_VisionModeButton_focus_entered():
-	_play_sound("tutorialvision")
+	speaker.play_sound("tutorialvision")
 
 func _on_HearingModeButton_focus_entered():
-	_play_sound("tutorialhearing")
+	speaker.play_sound("tutorialhearing")
 
 func _on_BackButton_focus_entered():
-	_play_sound("back")
+	speaker.play_sound("back")

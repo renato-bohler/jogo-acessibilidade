@@ -3,13 +3,6 @@ extends Control
 const PORT = 7788 # Probably shouldn't be const but ok for now
 
 onready var speaker = get_node("/root/Speaker")
-onready var sound_navigation = get_node("/root/SoundNavigation")
-
-func _play_sound(filename, type = "ogg"):
-	if (sound_navigation.pressed):
-		var vstream = load("res://assets/sounds/menus/{filename}.{type}".format({"filename": filename, "type": type}))
-		speaker.set_stream(vstream)
-		speaker.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,13 +33,13 @@ func _on_Button_pressed(scene_to_load):
 		get_tree().change_scene(scene_to_load)
 
 func _on_IPAddress_focus_entered():
-	_play_sound("ipaddress")
+	speaker.play_sound("ipaddress")
 
 func _on_ConnectButton_focus_entered():
-	_play_sound("start")
+	speaker.play_sound("start")
 
 func _on_BackButton_focus_entered():
-	_play_sound("back")
+	speaker.play_sound("back")
 
 func _on_IPAddress_text_entered(new_text):
 	_transition_to_Connect()
@@ -65,11 +58,11 @@ func _transition_to_Connect():
 	$Connecting.show()
 	
 	# Play sounds
-	_play_sound("connecting")
+	speaker.play_sound("connecting")
 	yield(speaker, "finished")
-	_play_sound("abort")
+	speaker.play_sound("abort")
 	yield(speaker, "finished")
-	_play_sound("tic_toc", "ogg")
+	speaker.play_sound("tic_toc", "ogg")
 
 	# Connect to the provided IP Address
 	Networking.join_game($InputIPAddress/Menu/Input/IPAddress.text, PORT)
@@ -91,17 +84,17 @@ func _transition_to_ConnectionError():
 	focus.grab_focus()
 	
 	# Play sounds
-	_play_sound("connectionerror_text")
+	speaker.play_sound("connectionerror_text")
 	yield(speaker, "finished")
 	if get_focus_owner() == focus:
-		_play_sound("retry")
+		speaker.play_sound("retry")
 		
 func _connected_to_server(id):
 	print("Connected to server, ID should be 1: " + id)
-	_play_sound("ding")
+	speaker.play_sound("ding")
 
 func _on_RetryButton_focus_entered():
-	_play_sound("retry")
+	speaker.play_sound("retry")
 
 func _on_RetryButton_pressed():
 	_transition_to_Connect()

@@ -3,13 +3,6 @@ extends Control
 const PORT = 7788
 
 onready var speaker = get_node("/root/Speaker")
-onready var sound_navigation = get_node("/root/SoundNavigation")
-
-func _play_sound(filename, type = "ogg"):
-	if (sound_navigation.pressed):
-		var vstream = load("res://assets/sounds/menus/{filename}.{type}".format({"filename": filename, "type": type}))
-		speaker.set_stream(vstream)
-		speaker.play()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,11 +22,11 @@ func _ready():
 	var focus = $WaitingConnection/Menu/Buttons/BackButton
 	focus.grab_focus()
 	
-	_play_sound("waitingforplayer")
+	speaker.play_sound("waitingforplayer")
 	yield(speaker, "finished")
-	_play_sound("abort")
+	speaker.play_sound("abort")
 	yield(speaker, "finished")
-	_play_sound("tic_toc", "ogg")
+	speaker.play_sound("tic_toc", "ogg")
 	_open_server()
 
 func _on_Button_pressed(scene_to_load):
