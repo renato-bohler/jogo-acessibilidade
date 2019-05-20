@@ -212,9 +212,6 @@ margin_right = 372.0
 margin_bottom = 136.0
 text = "Voltar"
 scene_to_load = "res://menus/play/PlayGame.tscn"
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
 [connection signal="focus_entered" from="InputIPAddress/Menu/Input/IPAddress" to="." method="_on_IPAddress_focus_entered"]
 [connection signal="text_entered" from="InputIPAddress/Menu/Input/IPAddress" to="." method="_on_IPAddress_text_entered"]
 [connection signal="focus_entered" from="InputIPAddress/Menu/Buttons/ConnectButton" to="." method="_on_ConnectButton_focus_entered"]
