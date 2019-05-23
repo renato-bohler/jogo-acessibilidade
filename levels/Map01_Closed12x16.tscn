@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://player/PlayerAction.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 94.6457, 62.5419 )
@@ -17,6 +18,19 @@ extents = Vector2( 18.1794, 17.9442 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 19.8848, 18.4043 )
 
+[sub_resource type="SegmentShape2D" id=6]
+a = Vector2( -0.953125, 756.208 )
+
+[sub_resource type="SegmentShape2D" id=7]
+a = Vector2( 1013.71, 12.7531 )
+b = Vector2( 10.1952, 12.0453 )
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 19.1877
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 13.4808, 46.2843 )
+
 [node name="Map01_Closed12x16" type="Node2D"]
 position = Vector2( -0.480804, 0.284332 )
 
@@ -26,6 +40,7 @@ format = 1
 tile_data = PoolIntArray( 0, 151, 0, 1, 152, 0, 2, 152, 0, 3, 152, 0, 4, 152, 0, 5, 152, 0, 6, 152, 0, 7, 152, 0, 8, 152, 0, 9, 152, 0, 10, 152, 0, 11, 152, 0, 12, 152, 0, 13, 152, 0, 14, 152, 0, 15, 153, 0, 65536, 161, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 163, 0, 131072, 161, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 1, 0, 131077, 1, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 1, 0, 131083, 1, 0, 131084, 1, 0, 131085, 1, 0, 131086, 1, 0, 131087, 163, 0, 196608, 161, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 196618, 1, 0, 196619, 1, 0, 196620, 1, 0, 196621, 1, 0, 196622, 1, 0, 196623, 163, 0, 262144, 161, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 262154, 1, 0, 262155, 1, 0, 262156, 1, 0, 262157, 1, 0, 262158, 1, 0, 262159, 163, 0, 327680, 161, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 163, 0, 393216, 161, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 163, 0, 458752, 161, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 1, 0, 458760, 1, 0, 458761, 1, 0, 458762, 1, 0, 458763, 1, 0, 458764, 1, 0, 458765, 1, 0, 458766, 3, 0, 458767, 163, 0, 524288, 161, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 163, 0, 589824, 161, 0, 589825, 0, 0, 589826, 1, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 1, 0, 589831, 0, 0, 589832, 1, 0, 589833, 0, 0, 589834, 0, 0, 589835, 1, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 163, 0, 655360, 161, 0, 655361, 0, 0, 655362, 0, 0, 655363, 1, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 163, 0, 720896, 171, 0, 720897, 172, 0, 720898, 172, 0, 720899, 172, 0, 720900, 172, 0, 720901, 172, 0, 720902, 172, 0, 720903, 172, 0, 720904, 172, 0, 720905, 172, 0, 720906, 172, 0, 720907, 172, 0, 720908, 172, 0, 720909, 172, 0, 720910, 172, 0, 720911, 173, 0 )
 
 [node name="TileMapLvl2" type="TileMap" parent="."]
+editor/display_folded = true
 tile_set = ExtResource( 1 )
 format = 1
 tile_data = PoolIntArray( 4, 71, 0, 5, 65, 0, 6, 71, 0, 12, 101, 0, 65540, 61, 0, 65541, 63, 0, 65547, 81, 0, 65548, 82, 0, 131076, 60, 0, 131083, 91, 0, 131084, 92, 0, 196616, 148, 0, 196617, 149, 0, 196618, 150, 0, 262152, 168, 0, 262153, 169, 0, 262154, 170, 0, 327681, 102, 0, 393231, 32, 0, 458764, 100, 0, 458767, 1073741856, 0, 524293, 70, 0, 524294, 60, 0, 589824, 109, 0, 589826, 101, 0, 589833, 61, 0, 589838, 101, 0, 655364, 100, 0, 655367, 60, 0, 655369, 70, 0, 720896, 102, 0, 720898, 108, 0, 720902, 61, 0, 720904, 71, 0 )
@@ -132,3 +147,37 @@ editor/display_folded = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Pot"]
 position = Vector2( 352.087, 31.284 )
 shape = SubResource( 5 )
+
+[node name="Wall" type="KinematicBody2D" parent="TileMapLvl2"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Wall"]
+position = Vector2( 10.4339, 1.50734 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLvl2/Wall"]
+position = Vector2( 1013.03, 8.30919 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TileMapLvl2/Wall"]
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMapLvl2/Wall"]
+position = Vector2( 2.09241, 743.593 )
+shape = SubResource( 7 )
+
+[node name="Key" type="Area2D" parent="TileMapLvl2"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Key"]
+position = Vector2( 351.413, 95.6527 )
+shape = SubResource( 8 )
+
+[node name="Door" type="Area2D" parent="TileMapLvl2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Door"]
+position = Vector2( 998, 447 )
+shape = SubResource( 9 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 78.7585, 73.0306 )

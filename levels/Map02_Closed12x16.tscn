@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://terrain/terrain_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://player/PlayerAction.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25.7299, 25.1087 )
@@ -12,14 +13,21 @@ extents = Vector2( 25.6071, 26.7673 )
 radius = 19.0084
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 67.3112, 17.9197 )
+extents = Vector2( 63.583, 17.9197 )
 
 [sub_resource type="SegmentShape2D" id=5]
 a = Vector2( 44.5537, 202.72 )
-b = Vector2( 47.3538, 15.7738 )
+b = Vector2( 44.9807, 7.78342 )
 
 [sub_resource type="SegmentShape2D" id=6]
 a = Vector2( 62.685, 10.0275 )
+
+[sub_resource type="SegmentShape2D" id=7]
+a = Vector2( 93.6732, 44.3068 )
+b = Vector2( 93.6732, 108.554 )
+
+[sub_resource type="SegmentShape2D" id=8]
+b = Vector2( 1.71469, 192.532 )
 
 [node name="Map02_Closed12x16" type="Node2D"]
 
@@ -55,13 +63,18 @@ shape = SubResource( 3 )
 [node name="Exit" type="Area2D" parent="TileMapLvl2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Exit"]
-position = Vector2( 705.949, 19.6438 )
+position = Vector2( 704.188, 18.3234 )
 shape = SubResource( 4 )
 
 [node name="Water" type="KinematicBody2D" parent="TileMapLvl2"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Water"]
-position = Vector2( 17.18, 176.286 )
+position = Vector2( 18.5669, 182.111 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D29" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 916.554, 182.111 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLvl2/Water"]
@@ -83,3 +96,162 @@ shape = SubResource( 6 )
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="TileMapLvl2/Water"]
 position = Vector2( 322.591, 116.623 )
 shape = SubResource( 6 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 385.209, 53.7864 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 448.366, 53.7864 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 510.864, 53.3463 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 575.563, 53.3463 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 768.356, 53.3463 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 832.421, 117.411 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 896.486, 180.279 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 897.873, 503.374 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 833.598, 565.942 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 768.755, 630.785 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 704.184, 630.995 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 641.047, 694.132 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 576.556, 694.32 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 511.651, 630.548 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 447.26, 630.548 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 384.542, 694.52 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 320.57, 694.102 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 256.92, 694.102 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D25" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 191.37, 630.061 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D26" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 127.707, 567.043 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D27" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 64.7971, 567.043 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D28" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 0.424057, 567.043 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D30" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 0.424057, 373.053 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D31" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 867.393, 342.038 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D32" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 868.092, 404.19 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D33" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 802.209, 468.267 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D34" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 738.554, 531.292 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D35" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 609.983, 596.208 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D36" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 479.872, 596.943 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D37" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 354.906, 595.473 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D38" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 163.497, 594.658 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D39" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 97.636, 529.994 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D40" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 35.8194, 83.2821 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D41" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 98.5849, 19.2225 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D42" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 163.292, 19.546 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D43" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 290.117, 18.8989 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D44" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 737.726, 19.339 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D45" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 803.562, 81.2738 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D46" type="CollisionShape2D" parent="TileMapLvl2/Water"]
+position = Vector2( 0, 382.271 )
+shape = SubResource( 8 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 54.796, 461.694 )

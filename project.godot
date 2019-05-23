@@ -25,6 +25,10 @@ Speaker="*res://menus/Speaker.tscn"
 SoundNavigation="*res://menus/SoundNavigation.tscn"
 Networking="*res://networking/networking.gd"
 
+[display]
+
+window/size/height=768
+
 [rendering]
 
 environment/default_clear_color=Color( 0.835294, 0.835294, 0.835294, 1 )
