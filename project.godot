@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "ListenerPlayerActions",
 "language": "GDScript",
 "path": "res://player/ListenerPlayerActions.gd"
+}, {
+"base": "Node",
+"class": "PlayerActions",
+"language": "GDScript",
+"path": "res://player/PlayerActions.gd"
 } ]
 _global_script_class_icons={
-"ListenerPlayerActions": ""
+"ListenerPlayerActions": "",
+"PlayerActions": ""
 }
 
 [application]
