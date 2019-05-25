@@ -3,6 +3,9 @@ extends KinematicBody2D
 var mechanics_instance
 var player
 
+onready var listenerPlayerIndication = get_node("ListenerPlayerIndication")
+
+
 func _ready():
 	player = preload("res://player/Player.gd").new()
 	mechanics_instance = load("res://player/mechanics.gd").new()
@@ -11,8 +14,8 @@ func _ready():
 	
 func _physics_process(delta):
 	player = mechanics_instance.handle_movement(player)
+	listenerPlayerIndication.handle_indication()
 	var move_vec = player.movement.normalized()
 	move_and_collide(move_vec * player.move_speed * delta)
 	
 	global_rotation_degrees = player.rotation
-	
