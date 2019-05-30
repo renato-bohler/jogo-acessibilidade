@@ -1,16 +1,86 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://player/KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://player/PlayerBody.gd" type="Script" id=1]
+[ext_resource path="res://player/ListenerPlayerIndication.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Player/sprites/right-2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Player/sprites/right-3.png" type="Texture" id=4]
+[ext_resource path="res://assets/Player/sprites/left-1.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/sprites/back-1.png" type="Texture" id=6]
+[ext_resource path="res://assets/Player/sprites/left-2.png" type="Texture" id=7]
+[ext_resource path="res://assets/Player/sprites/left-3.png" type="Texture" id=8]
+[ext_resource path="res://assets/Player/sprites/front-2.png" type="Texture" id=9]
+[ext_resource path="res://assets/Player/sprites/front-3.png" type="Texture" id=10]
+[ext_resource path="res://assets/Player/sprites/right-1.png" type="Texture" id=11]
+[ext_resource path="res://assets/Player/sprites/front-1.png" type="Texture" id=12]
+[ext_resource path="res://assets/Player/sprites/back-2.png" type="Texture" id=13]
+[ext_resource path="res://assets/Player/sprites/back-3.png" type="Texture" id=14]
+[ext_resource path="res://player/Sprite.gd" type="Script" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 50.0
+radius = 5.82505
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12.6491, 10 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "running_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "idle_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "running_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "running_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "idle_front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "running_up",
+"speed": 5.0
+} ]
+
+[node name="PlayerBody" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.323532, -7.7648 )
+scale = Vector2( 4.56776, 4.28261 )
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+[node name="ListenerPlayerIndication" parent="." instance=ExtResource( 2 )]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 23.2944 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.131256, 0.151394 )
+frames = SubResource( 3 )
+animation = "running_up"
+script = ExtResource( 15 )

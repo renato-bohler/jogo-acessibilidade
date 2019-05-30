@@ -8,6 +8,7 @@ enum RotationDirection {
 	ROTATE_COUNTER_CLOCKWISE
 	}
 
+var movement_direction
 var movement
 var desired_movement
 var rotation
@@ -20,10 +21,11 @@ func _init():
 	self.rotation = 0
 	self.desired_rotation = 0
 	self.move_speed = DEFAULT_MOVE_SPEED
+	self.movement_direction = PlayerActions.ActionDirection.NO_ACTION
 	
 	
 func walk():
-	self._handle_rotation()
+	self._handle_simpler_rotation()
 	if self.desired_rotation != self.rotation:
 		self.movement.x = 0
 		self.movement.y = 0
@@ -32,6 +34,9 @@ func walk():
 	self.movement.x = self.desired_movement.x
 	self.movement.y = self.desired_movement.y
 	
+func _handle_simpler_rotation():
+	self.rotation = self.desired_rotation
+
 func _handle_rotation():
 	if self.rotation == self.desired_rotation:
 		return

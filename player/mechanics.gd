@@ -1,13 +1,5 @@
 extends Node
 
-enum PlayerActions {
-	MOVE_UP,
-	MOVE_LEFT,
-	MOVE_RIGHT,
-	MOVE_DOWN,
-	NO_ACTION
-}
-
 func handle_movement(player):
 	var action = self.get_player_action()
 	player = self.handle_action_selected(player, action)
@@ -16,25 +8,26 @@ func handle_movement(player):
 	
 
 func handle_action_selected(player, action):
-	if action == PlayerActions.MOVE_UP:
+	player.movement_direction = action
+	if action == PlayerActions.ActionDirection.MOVE_UP:
 		player.desired_movement.y = -1
 		player.desired_movement.x = 0
 		player.desired_rotation = 0
 		return player
 		
-	if  action == PlayerActions.MOVE_LEFT:
+	if  action == PlayerActions.ActionDirection.MOVE_LEFT:
 		player.desired_movement.x = -1
 		player.desired_movement.y = 0
 		player.desired_rotation = 270
 		return player
 		
-	if  action == PlayerActions.MOVE_RIGHT:
+	if  action == PlayerActions.ActionDirection.MOVE_RIGHT:
 		player.desired_movement.x = 1
 		player.desired_movement.y = 0
 		player.desired_rotation = 90
 		return player
 		
-	if  action == PlayerActions.MOVE_DOWN:
+	if  action == PlayerActions.ActionDirection.MOVE_DOWN:
 		player.desired_movement.y = 1
 		player.desired_movement.x = 0
 		player.desired_rotation = 180
@@ -46,18 +39,18 @@ func handle_action_selected(player, action):
 
 func get_player_action():
 	if self.is_move_up():
-		return PlayerActions.MOVE_UP
+		return PlayerActions.ActionDirection.MOVE_UP
 		
 	if self.is_move_down():
-		return PlayerActions.MOVE_DOWN
+		return PlayerActions.ActionDirection.MOVE_DOWN
 		
 	if self.is_move_left():
-		return PlayerActions.MOVE_LEFT
+		return PlayerActions.ActionDirection.MOVE_LEFT
 		
 	if self.is_move_right():
-		return PlayerActions.MOVE_RIGHT
+		return PlayerActions.ActionDirection.MOVE_RIGHT
 		
-	return PlayerActions.NO_ACTION
+	return PlayerActions.ActionDirection.NO_ACTION
 
 func is_move_up():
 	return Input.is_action_pressed("ui_up")
