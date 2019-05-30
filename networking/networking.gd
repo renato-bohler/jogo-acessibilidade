@@ -26,6 +26,8 @@ enum DIR {
 	DOWN_RIGHT
 }
 
+var peer_id = -1
+
 # Join a host (for audio client use)
 func join_game(ip : String, port : int):
 	var server = NetworkedMultiplayerENet.new()
@@ -50,9 +52,12 @@ func _ready():
 # so just pass the signal up for the interface to handle
 func _player_connected(id):
 	emit_signal("connected", id)
+	peer_id = id
+	
 
 func _connected_ok():
 	emit_signal("connected", 1)
+	peer_id = 1
 
 func _connected_fail():
 	get_tree().set_network_peer(null)
@@ -61,35 +66,60 @@ func _connected_fail():
 func _peer_disconnected():
 	get_tree().set_network_peer(null)
 	emit_signal("peer_disconnected")
+	peer_id = -1
 
 # The server calls this function to update the player position on the audio client 
-remote func update_postion(pos : Vector2):
+remote func _update_postion(pos : Vector2):
 	emit_signal("new_postion", pos)
 	
+func update_position(pos : Vector2):
+	rpc_id(peer_id, "_update_position", pos)
+
+#----------------------------------------------------------
+
 # The audio client calls this on the server to send a warning
 # Use DIR(ection) enum
-remote func send_warning(direction):
+remote func _send_warning(direction):
 	emit_signal("direction_warning", direction)
-	
+
+func send_warning(direction):
+	rpc_id(peer_id, "_send_warning", direction)
+
+#----------------------------------------------------------
+
 # Client tells server that it's ready for the match
 # Will will wait for "start_match" from the server
-remote func ready_to_start():
+remote func _ready_to_start():
 	emit_signal("ready_start")
+
+func ready_to_start():
+	rpc_id(peer_id, "_ready_to_start")
+
+#----------------------------------------------------------
 
 # Server tells client to start the match
 # Should wait for "ready_to_start" if hasn't received it yet
-remote func start_game():
+remote func _start_game():
 	emit_signal("start_game")
-	
+
+func start_game():
+	rpc_id(peer_id, "_start_game")
+
+#----------------------------------------------------------
+
 # Server tells client to end the game because it won
-remote func game_win():
+remote func _game_win():
 	emit_signal("game_finished")
 	get_tree().set_network_peer(null)
-	
+	peer_id = -1
+
+func game_win():
+	rpc_id(peer_id, "_game_win")
+
+#----------------------------------------------------------
+
 # Call when you want to quit the game
 # Tells the other peer you disconnected automagically
 func quit_game():
 	get_tree().set_network_peer(null)
-	
-
-
+	peer_id = -1
