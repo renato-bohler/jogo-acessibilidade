@@ -1,6 +1,6 @@
 extends Node
 
-var tile_size = Vector2(128,128)
+var tile_size = Vector2(64,64)
 onready var texture = $Sprite.texture
 
 func _ready():

@@ -4,14 +4,14 @@
 [ext_resource path="res://player/ListenerPlayerIndication.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/sprites/right-2.png" type="Texture" id=3]
 [ext_resource path="res://assets/Player/sprites/right-3.png" type="Texture" id=4]
-[ext_resource path="res://assets/Player/sprites/left-1.png" type="Texture" id=5]
-[ext_resource path="res://assets/Player/sprites/back-1.png" type="Texture" id=6]
-[ext_resource path="res://assets/Player/sprites/left-2.png" type="Texture" id=7]
-[ext_resource path="res://assets/Player/sprites/left-3.png" type="Texture" id=8]
-[ext_resource path="res://assets/Player/sprites/front-2.png" type="Texture" id=9]
-[ext_resource path="res://assets/Player/sprites/front-3.png" type="Texture" id=10]
+[ext_resource path="res://assets/Player/sprites/left-2.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/sprites/left-3.png" type="Texture" id=6]
+[ext_resource path="res://assets/Player/sprites/front-2.png" type="Texture" id=7]
+[ext_resource path="res://assets/Player/sprites/front-3.png" type="Texture" id=8]
+[ext_resource path="res://assets/Player/sprites/left-1.png" type="Texture" id=9]
+[ext_resource path="res://assets/Player/sprites/front-1.png" type="Texture" id=10]
 [ext_resource path="res://assets/Player/sprites/right-1.png" type="Texture" id=11]
-[ext_resource path="res://assets/Player/sprites/front-1.png" type="Texture" id=12]
+[ext_resource path="res://assets/Player/sprites/back-1.png" type="Texture" id=12]
 [ext_resource path="res://assets/Player/sprites/back-2.png" type="Texture" id=13]
 [ext_resource path="res://assets/Player/sprites/back-3.png" type="Texture" id=14]
 [ext_resource path="res://player/Sprite.gd" type="Script" id=15]
@@ -29,24 +29,24 @@ animations = [ {
 "name": "running_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "idle_left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "idle_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "running_left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "running_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "idle_left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "idle_front",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -56,7 +56,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "idle_front",
+"name": "idle_back",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
@@ -66,6 +66,7 @@ animations = [ {
 } ]
 
 [node name="PlayerBody" type="KinematicBody2D"]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
