@@ -35,6 +35,7 @@ config/icon="res://icon.png"
 Speaker="*res://menus/Speaker.tscn"
 SoundNavigation="*res://menus/SoundNavigation.tscn"
 Networking="*res://networking/networking.gd"
+SceneChanger="*res://levels/SceneChanger.tscn"
 
 [display]
 
