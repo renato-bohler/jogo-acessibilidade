@@ -1,0 +1,132 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://terrain/terrain_tiles2.tres" type="TileSet" id=1]
+[ext_resource path="res://levels/Key.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/PlayerAction.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 510.154, 28.3748 )
+
+[sub_resource type="SegmentShape2D" id=2]
+a = Vector2( -13.3233, 39.2287 )
+b = Vector2( -12.2733, 181.479 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30.2119, 257.065 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 64.6256, 65.8643 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 128.563, 30.4945 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 33.0577, 34.5757 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 287.727, 68.5849 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 31.806, 109.298 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLvl1" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, -1610612716, 0, 1, 1610612736, 0, 2, 1610612738, 0, 3, 1610612748, 0, 4, 1610612748, 0, 5, 1610612738, 0, 6, 1610612748, 0, 7, 1610612748, 0, 8, 1610612736, 0, 9, 1610612748, 0, 10, 1610612748, 0, 11, 1610612738, 0, 12, 1610612748, 0, 13, 1610612748, 0, 14, 1610612738, 0, 15, 1610612756, 0, 65536, -1610612734, 0, 65537, -1073741802, 0, 65538, -1073741802, 0, 65539, -1073741802, 0, 65540, -1073741802, 0, 65541, -1073741802, 0, 65542, -1073741802, 0, 65543, -1073741802, 0, 65544, -1073741802, 0, 65545, -1073741802, 0, 65546, 30, 0, 65547, -1073741802, 0, 65548, -1073741802, 0, 65549, -1073741802, 0, 65550, -1073741802, 0, 65551, -1073741812, 0, 131072, -1610612734, 0, 131073, 30, 0, 131074, -1073741802, 0, 131075, 21, 0, 131076, -1073741802, 0, 131077, -1073741802, 0, 131078, -1073741802, 0, 131079, -1073741802, 0, 131080, -1073741802, 0, 131081, -1073741802, 0, 131082, -1073741802, 0, 131083, -1073741802, 0, 131084, -1073741802, 0, 131085, 30, 0, 131086, -1073741802, 0, 131087, -1073741822, 0, 196608, -1610612734, 0, 196609, -1073741802, 0, 196610, -1073741802, 0, 196611, -1073741802, 0, 196612, -1073741802, 0, 196613, -1073741802, 0, 196614, -1073741802, 0, 196615, -1073741802, 0, 196616, -1073741802, 0, 196617, -1073741802, 0, 196618, -1073741802, 0, 196619, -1073741802, 0, 196620, -1073741802, 0, 196621, -1073741802, 0, 196622, -1073741802, 0, 196623, -1073741812, 0, 262144, -1610612734, 0, 262145, -1073741802, 0, 262146, -1073741802, 0, 262147, -1073741802, 0, 262148, -1073741802, 0, 262149, -1073741802, 0, 262150, 30, 0, 262151, -1073741802, 0, 262152, -1073741802, 0, 262153, -1073741802, 0, 262154, -1073741802, 0, 262155, -1073741802, 0, 262156, -1073741802, 0, 262157, -1073741802, 0, 262158, -1073741802, 0, 262159, -1073741822, 0, 327680, -1610612734, 0, 327681, -1073741802, 0, 327682, -1073741802, 0, 327683, -1073741802, 0, 327684, -1073741802, 0, 327685, -1073741802, 0, 327686, -1073741802, 0, 327687, -1073741802, 0, 327688, -1073741802, 0, 327689, -1073741802, 0, 327690, -1073741802, 0, 327691, -1073741802, 0, 327692, -1073741802, 0, 327693, 21, 0, 327694, -1073741802, 0, 327695, -1073741822, 0, 393216, -1610612734, 0, 393217, -1073741802, 0, 393218, 30, 0, 393219, -1073741802, 0, 393220, -1073741802, 0, 393221, -1073741802, 0, 393222, -1073741802, 0, 393223, 30, 0, 393224, -1073741802, 0, 393225, -1073741802, 0, 393226, 30, 0, 393227, -1073741802, 0, 393228, -1073741802, 0, 393229, -1073741802, 0, 393230, -1073741802, 0, 393231, -1073741822, 0, 458752, 20, 0, 458753, -1073741802, 0, 458754, -1073741802, 0, 458755, -1073741802, 0, 458756, -1073741802, 0, 458757, -1073741802, 0, 458758, -1073741802, 0, 458759, -1073741802, 0, 458760, -1073741802, 0, 458761, -1073741802, 0, 458762, -1073741802, 0, 458763, -1073741802, 0, 458764, -1073741802, 0, 458765, -1073741802, 0, 458766, -1073741802, 0, 458767, -1073741812, 0, 524288, 22, 0, 524289, -1073741802, 0, 524290, -1073741802, 0, 524291, 30, 0, 524292, -1073741802, 0, 524293, -1073741802, 0, 524294, -1073741802, 0, 524295, -1073741802, 0, 524296, -1073741802, 0, 524297, -1073741802, 0, 524298, -1073741802, 0, 524299, -1073741802, 0, 524300, -1073741802, 0, 524301, -1073741802, 0, 524302, -1073741802, 0, 524303, -1073741822, 0, 589824, -1073741802, 0, 589825, -1073741802, 0, 589826, -1073741802, 0, 589827, -1073741802, 0, 589828, -1073741802, 0, 589829, -1073741802, 0, 589830, -1073741802, 0, 589831, -1073741802, 0, 589832, -1073741802, 0, 589833, -1073741802, 0, 589834, 30, 0, 589835, -1073741802, 0, 589836, -1073741802, 0, 589837, -1073741802, 0, 589838, -1073741802, 0, 589839, -1073741822, 0, 655360, 1073741844, 0, 655361, -1073741802, 0, 655362, -1073741802, 0, 655363, -1073741802, 0, 655364, 30, 0, 655365, -1073741802, 0, 655366, -1073741802, 0, 655367, -1073741802, 0, 655368, -1073741802, 0, 655369, -1073741802, 0, 655370, -1073741802, 0, 655371, -1073741802, 0, 655372, -1073741802, 0, 655373, 30, 0, 655374, -1073741802, 0, 655375, -1073741812, 0, 720896, 20, 0, 720897, 2, 0, 720898, 12, 0, 720899, 2, 0, 720900, 2, 0, 720901, 2, 0, 720902, 2, 0, 720903, 12, 0, 720904, 2, 0, 720905, 0, 0, 720906, 2, 0, 720907, 2, 0, 720908, 12, 0, 720909, 2, 0, 720910, 12, 0, 720911, -1073741804, 0 )
+
+[node name="TileMapLvl2" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65537, -1073741814, 0, 65538, 1, 0, 65544, -1073741814, 0, 65545, 1, 0, 65546, 1, 0, 65549, 1, 0, 131073, 1, 0, 131074, -1073741813, 0, 131078, -1073741813, 0, 131080, 1, 0, 131081, -1073741813, 0, 131085, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, -1073741814, 0, 196621, 1, 0, 393226, -1073741813, 0, 458761, 1, 0, 458762, -1073741813, 0, 458763, 1, 0, 458764, 1, 0, 524296, -1073741813, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 589831, 1, 0, 589832, -1073741814, 0, 589833, 1, 0, 589834, -1073741813, 0, 589835, -1073741814, 0, 589836, 1, 0, 589837, -1073741813, 0, 589838, 1, 0, 655366, 1, 0, 655367, -1073741813, 0, 655368, -1073741814, 0, 655369, -1073741814, 0, 655370, 1, 0, 655371, -1073741813, 0, 655372, 1, 0, 655373, 1, 0, 655374, -1073741814, 0 )
+
+[node name="Walls" type="KinematicBody2D" parent="TileMapLvl2"]
+editor/display_folded = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 511.796, 34.1238 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 510.436, 736.077 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 17.2733, 461.521 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 33.6013, 255.138 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 992.665, 263.3 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 129.236, 122.434 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 767.251, 514.221 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 641.893, 511.637 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 578.159, 127.875 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 512.861, 224.462 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 32.649, 676.106 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 416.479, 674.814 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 544.422, 544.286 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 993.345, 545.646 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 672.297, 89.9208 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 416.547, 159.3 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 669.78, 418.927 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 735.963, 642.097 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
+position = Vector2( 865.555, 147.329 )
+shape = SubResource( 8 )
+
+[node name="Key" parent="TileMapLvl2" instance=ExtResource( 2 )]
+position = Vector2( -325.13, 5.4415 )
+
+[node name="Door" parent="TileMapLvl2" instance=ExtResource( 3 )]
+position = Vector2( 1344.53, -831.444 )
+rotation = 1.5708
+
+[node name="PlayerBody" parent="." instance=ExtResource( 4 )]
+position = Vector2( 63.8424, 567.215 )
