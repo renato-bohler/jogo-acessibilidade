@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/dynamic/screen_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/fonts/dynamic/menu_buttons.tres" type="DynamicFont" id=3]
 [ext_resource path="res://menus/buttons/MenuButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/loading.png" type="Texture" id=5]
+[ext_resource path="res://assets/menus/loading.png" type="Texture" id=5]
 [ext_resource path="res://assets/fonts/dynamic/normal_text.tres" type="DynamicFont" id=6]
 
 [sub_resource type="GDScript" id=1]
@@ -48,20 +48,20 @@ custom_constants/separation = 68
 
 [node name="Title" type="Label" parent="InputIPAddress/Menu"]
 margin_right = 784.0
-margin_bottom = 74.0
+margin_bottom = 89.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Modo audição"
 align = 1
 
 [node name="Input" type="VBoxContainer" parent="InputIPAddress/Menu"]
-margin_top = 142.0
+margin_top = 157.0
 margin_right = 784.0
-margin_bottom = 197.0
+margin_bottom = 221.0
 
 [node name="IPAddress" type="LineEdit" parent="InputIPAddress/Menu/Input"]
 margin_right = 784.0
-margin_bottom = 55.0
+margin_bottom = 64.0
 custom_fonts/font = ExtResource( 3 )
 align = 1
 max_length = 15
@@ -71,8 +71,8 @@ caret_blink_speed = 0.5
 
 [node name="Label" type="Label" parent="InputIPAddress/Menu/Input/IPAddress"]
 anchor_right = 1.0
-margin_top = -45.7831
-margin_bottom = -0.783142
+margin_top = -50.553
+margin_bottom = 3.447
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Endereço IP:"
@@ -80,9 +80,9 @@ align = 1
 valign = 1
 
 [node name="Buttons" type="VBoxContainer" parent="InputIPAddress/Menu"]
-margin_top = 265.0
+margin_top = 289.0
 margin_right = 784.0
-margin_bottom = 390.0
+margin_bottom = 414.0
 custom_constants/separation = 23
 
 [node name="ConnectButton" parent="InputIPAddress/Menu/Buttons" instance=ExtResource( 4 )]

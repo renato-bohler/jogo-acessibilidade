@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 onready var speaker = get_node("/root/Speaker")
-onready var sound_navigation = get_node("/root/SoundNavigation")
+onready var sound_navigation = get_node("/root/SoundNavigation/Toggle")
 
 func play_sound(filename):
 	if (sound_navigation.pressed):
