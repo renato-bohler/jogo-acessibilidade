@@ -8,6 +8,7 @@ signal game_finished()
 signal ready_start()
 signal start_game()
 signal connected(id)
+signal sync_scene(scene)
 
 # In game communication
 signal direction_warning(direction)
@@ -94,6 +95,7 @@ remote func _ready_to_start():
 
 func ready_to_start():
 	rpc_id(peer_id, "_ready_to_start")
+	
 
 #----------------------------------------------------------
 
@@ -104,6 +106,15 @@ remote func _start_game():
 
 func start_game():
 	rpc_id(peer_id, "_start_game")
+
+#----------------------------------------------------------
+
+# Server tells the client to change scenes
+remote func _sync_scene(scene):
+	emit_signal("change_scene", scene)
+	
+func sync_scene(scene : String):
+	rpc_id(peer_id, "_sync_scene", scene)
 
 #----------------------------------------------------------
 
