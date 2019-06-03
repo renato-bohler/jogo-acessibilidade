@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/menus/background.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/dynamic/normal_text.tres" type="DynamicFont" id=2]
 [ext_resource path="res://menus/SoundNavigation.gd" type="Script" id=3]
+[ext_resource path="res://assets/sounds/background.ogg" type="AudioStream" id=4]
 
 [sub_resource type="InputEventKey" id=1]
 scancode = 77
@@ -34,4 +35,11 @@ text = "Navegação por som [M]"
 flat = true
 align = 2
 script = ExtResource( 3 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -25.0
+autoplay = true
+mix_target = 1
+bus = "BackgroundMusic"
 [connection signal="toggled" from="Toggle" to="Toggle" method="_on_SoundNavigation_toggled"]
