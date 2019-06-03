@@ -3,6 +3,7 @@ extends KinematicBody2D
 var mechanics_instance
 var player
 var player_animation
+var hasKey
 
 onready var listenerPlayerIndication = get_node("ListenerPlayerIndication")
 onready var animation_sprite = get_node("Sprite")
@@ -12,6 +13,7 @@ func _ready():
 	player = preload("res://player/Player.gd").new()
 	mechanics_instance = load("res://player/mechanics.gd").new()
 	player_animation = load("res://player/PlayerAnimation.gd").new()
+	hasKey = false
 	yield(get_tree(), "idle_frame")
 	get_tree().call_group("monster", "set_player", self)
 	

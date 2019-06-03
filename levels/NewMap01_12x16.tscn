@@ -1,8 +1,9 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://terrain/terrain_tiles2.tres" type="TileSet" id=1]
-[ext_resource path="res://levels/Door.gd" type="Script" id=2]
-[ext_resource path="res://player/PlayerAction.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://levels/Key.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/PlayerAction.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 510.89, 29.3018 )
@@ -19,9 +20,6 @@ extents = Vector2( 134.055, 30.8091 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 31.5561, 107.684 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 25.5267, 30.8089 )
-
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLvl1" type="TileMap" parent="."]
@@ -35,7 +33,6 @@ format = 1
 tile_data = PoolIntArray( 65549, 1610612737, 0, 131085, 1610612746, 0, 196616, 1610612737, 0, 196617, 1610612746, 0, 196618, 1610612737, 0, 196619, 1610612746, 0, 196620, 1610612747, 0, 196621, 1610612737, 0, 524289, 1610612746, 0, 524290, 1610612746, 0, 524291, 1610612746, 0, 524292, 1610612746, 0, 589827, 1610612746, 0, 589828, 1610612746, 0, 655363, 1610612746, 0, 655364, 1610612746, 0 )
 
 [node name="Walls" type="KinematicBody2D" parent="TileMapLvl2"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Walls"]
 position = Vector2( 510.989, 31.6541 )
@@ -69,13 +66,9 @@ shape = SubResource( 5 )
 position = Vector2( 862.199, 138.675 )
 shape = SubResource( 5 )
 
-[node name="Door" type="Area2D" parent="TileMapLvl2"]
-script = ExtResource( 2 )
-world_scene = "res://levels/NewMap01_12x16.tscn"
+[node name="Door" parent="TileMapLvl2" instance=ExtResource( 2 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLvl2/Door"]
-position = Vector2( 860.692, 625.546 )
-shape = SubResource( 6 )
+[node name="Key" parent="TileMapLvl2" instance=ExtResource( 3 )]
 
-[node name="PlayerBody" parent="." instance=ExtResource( 3 )]
+[node name="PlayerBody" parent="." instance=ExtResource( 4 )]
 position = Vector2( 152.241, 143.197 )
