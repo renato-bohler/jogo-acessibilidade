@@ -37,4 +37,6 @@ func _open_server():
 	Networking.host_game(PORT)
 
 func _peer_connected(id):
-	print("Received a peer connection, their id is: " + id)
+	speaker.play_sound("ding")
+	SceneChanger.set_hearing_mode(false)
+	SceneChanger.change_scene("res://levels/NewMap01_12x16.tscn")

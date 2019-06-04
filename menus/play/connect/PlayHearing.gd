@@ -90,8 +90,11 @@ func _transition_to_ConnectionError():
 		speaker.play_sound("retry")
 		
 func _connected_to_server(id):
-	print("Connected to server, ID should be 1: " + id)
+	print("Connected to server!")
+	print(id)
 	speaker.play_sound("ding")
+	SceneChanger.set_hearing_mode(true)
+	SceneChanger.change_scene("res://levels/NewMap01_12x16.tscn")
 
 func _on_RetryButton_focus_entered():
 	speaker.play_sound("retry")
