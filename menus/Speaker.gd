@@ -9,4 +9,5 @@ func play_sound(filename):
 		speaker.set_stream(vstream)
 		speaker.play()
 	else:
+		yield(get_tree().create_timer(0.1), "timeout")
 		emit_signal("finished")
