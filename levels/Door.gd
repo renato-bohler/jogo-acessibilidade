@@ -9,4 +9,6 @@ func _physics_process(delta):
 	for body in bodies:
 		if (body.name == "PlayerBody" and get_owner().get_node("PlayerBody").hasKey and not changed):
 			SceneChanger.change_scene(world_scene)
+			Networking.sync_scene(world_scene)
 			changed = true
+			
