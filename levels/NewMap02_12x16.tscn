@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://terrain/terrain_tiles2.tres" type="TileSet" id=1]
 [ext_resource path="res://levels/Key.tscn" type="PackedScene" id=2]
 [ext_resource path="res://levels/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://player/PlayerAction.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/BlackCurtain.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 510.154, 28.3748 )
@@ -127,6 +128,9 @@ position = Vector2( -325.13, 5.4415 )
 [node name="Door" parent="TileMapLvl2" instance=ExtResource( 3 )]
 position = Vector2( 192.506, 959.344 )
 rotation = -1.5708
+world_scene = "res://levels/NewMap03_12x16.tscn"
 
 [node name="PlayerBody" parent="." instance=ExtResource( 4 )]
 position = Vector2( 63.8424, 567.215 )
+
+[node name="BlackCurtain" parent="." instance=ExtResource( 5 )]
