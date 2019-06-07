@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sounds/monster/monster_03.ogg" type="AudioStream" id=1]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[node name="Monster" type="Node2D"]
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2( 3, 3 )
+shape = SubResource( 1 )
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -4.039
+autoplay = true
+max_distance = 200.0
+attenuation = 1.7411
