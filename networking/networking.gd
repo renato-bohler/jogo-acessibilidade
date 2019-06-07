@@ -111,7 +111,7 @@ func start_game():
 
 # Server tells the client to change scenes
 remote func _sync_scene(scene):
-	emit_signal("change_scene", scene)
+	emit_signal("sync_scene", scene)
 	
 func sync_scene(scene : String):
 	rpc_id(peer_id, "_sync_scene", scene)
