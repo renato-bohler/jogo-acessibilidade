@@ -3,6 +3,8 @@ extends Node
 const DEFAULT_MOVE_SPEED = 300
 const ROTATION_STEP_DEGREES = 15
 
+class_name Player
+
 enum RotationDirection {
 	ROTATE_CLOCKWISE,
 	ROTATE_COUNTER_CLOCKWISE
@@ -11,7 +13,7 @@ enum RotationDirection {
 var movement_direction
 var movement
 var desired_movement
-var rotation
+var rotation: int
 var desired_rotation
 var move_speed
 
