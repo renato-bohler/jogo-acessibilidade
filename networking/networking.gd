@@ -12,7 +12,7 @@ signal sync_scene(scene)
 
 # In game communication
 signal direction_warning(direction)
-signal new_postion(position)
+signal new_position(position, rotation)
 
 # Enum for directions for warnings
 # Should probably move it out of here
@@ -70,11 +70,11 @@ func _peer_disconnected():
 	peer_id = -1
 
 # The server calls this function to update the player position on the audio client 
-remote func _update_postion(pos : Vector2):
-	emit_signal("new_postion", pos)
+remote func _update_position(pos : Vector2, rotation: int):
+	emit_signal("new_position", pos, rotation)
 	
-func update_position(pos : Vector2):
-	rpc_id(peer_id, "_update_position", pos)
+func update_position(pos : Vector2, rotation: int):
+	rpc_id(peer_id, "_update_position", pos, rotation)
 
 #----------------------------------------------------------
 
