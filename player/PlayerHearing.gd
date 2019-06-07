@@ -30,7 +30,7 @@ func update_position(delta):
 	self.update_player_body_state(delta)
 	
 func update_player():
-	self.player.movement = self.seeing_player_position
+	self.player_body.position = self.seeing_player_position
 	self.player.rotation = self.seeing_player_rotation
 
 func update_player_body_state(delta):

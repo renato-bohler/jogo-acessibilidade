@@ -72,7 +72,7 @@ func _peer_disconnected():
 # The server calls this function to update the player position on the audio client 
 remote func _update_position(pos : Vector2, rotation: int):
 	emit_signal("new_position", pos, rotation)
-	
+
 func update_position(pos : Vector2, rotation: int):
 	rpc_id(peer_id, "_update_position", pos, rotation)
 

@@ -15,7 +15,7 @@ func execute(delta):
 	self.player_body.move_and_collide(move_vec * self.player.move_speed * delta)
 	
 	self.player_body.global_rotation_degrees = self.player.rotation
-	Networking.update_position(move_vec, self.player.rotation)
+	Networking.update_position(self.player_body.position, self.player.rotation)
 
 func on_hearing_indication(action):
 	self.player_body.listenerPlayerIndication.show_indication(action)
