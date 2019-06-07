@@ -75,6 +75,7 @@ position = Vector2( 64.6794, 0.466797 )
 [node name="Key" parent="TileMapLvl2" instance=ExtResource( 3 )]
 
 [node name="PlayerBody" parent="." instance=ExtResource( 4 )]
+editor/display_folded = false
 position = Vector2( 152.241, 143.197 )
 
 [node name="HearingCamera" type="Camera2D" parent="PlayerBody"]
