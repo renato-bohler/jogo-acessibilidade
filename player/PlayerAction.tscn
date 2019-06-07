@@ -80,7 +80,7 @@ shape = SubResource( 1 )
 position = Vector2( 0, 23.2944 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="PlayerVisionMoveAnimation" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.131256, 0.151394 )
 frames = SubResource( 3 )
 animation = "running_up"
