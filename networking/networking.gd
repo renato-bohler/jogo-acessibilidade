@@ -65,16 +65,18 @@ func _connected_fail():
 	emit_signal("connection_fail")
 
 func _peer_disconnected():
+	peer_id = -1
 	get_tree().set_network_peer(null)
 	emit_signal("peer_disconnected")
-	peer_id = -1
+	
 
 # The server calls this function to update the player position on the audio client 
 remote func _update_position(pos : Vector2, rotation: int):
 	emit_signal("new_position", pos, rotation)
 
 func update_position(pos : Vector2, rotation: int):
-	rpc_id(peer_id, "_update_position", pos, rotation)
+	if peer_id > 0:
+		rpc_id(peer_id, "_update_position", pos, rotation)
 
 #----------------------------------------------------------
 
@@ -84,7 +86,8 @@ remote func _send_warning(direction):
 	emit_signal("direction_warning", direction)
 
 func send_warning(direction):
-	rpc_id(peer_id, "_send_warning", direction)
+	if peer_id > 0:
+		rpc_id(peer_id, "_send_warning", direction)
 
 #----------------------------------------------------------
 
@@ -94,7 +97,8 @@ remote func _ready_to_start():
 	emit_signal("ready_start")
 
 func ready_to_start():
-	rpc_id(peer_id, "_ready_to_start")
+	if peer_id > 0:
+		rpc_id(peer_id, "_ready_to_start")
 	
 
 #----------------------------------------------------------
@@ -105,7 +109,8 @@ remote func _start_game():
 	emit_signal("start_game")
 
 func start_game():
-	rpc_id(peer_id, "_start_game")
+	if peer_id > 0:
+		rpc_id(peer_id, "_start_game")
 
 #----------------------------------------------------------
 
@@ -114,7 +119,8 @@ remote func _sync_scene(scene):
 	emit_signal("sync_scene", scene)
 	
 func sync_scene(scene : String):
-	rpc_id(peer_id, "_sync_scene", scene)
+	if peer_id > 0:
+		rpc_id(peer_id, "_sync_scene", scene)
 
 #----------------------------------------------------------
 
@@ -125,7 +131,8 @@ remote func _game_win():
 	peer_id = -1
 
 func game_win():
-	rpc_id(peer_id, "_game_win")
+	if peer_id > 0:
+		rpc_id(peer_id, "_game_win")
 
 #----------------------------------------------------------
 
