@@ -161,3 +161,4 @@ shape = SubResource( 15 )
 position = Vector2( 765.075, 681.071 )
 
 [node name="BlackCurtain" parent="." instance=ExtResource( 5 )]
+color = Color( 0, 0, 0, 1 )

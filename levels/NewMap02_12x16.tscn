@@ -134,3 +134,4 @@ world_scene = "res://levels/NewMap03_12x16.tscn"
 position = Vector2( 63.8424, 567.215 )
 
 [node name="BlackCurtain" parent="." instance=ExtResource( 5 )]
+color = Color( 0, 0, 0, 1 )
