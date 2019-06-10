@@ -1,4 +1,9 @@
-[gd_resource type="AudioBusLayout" load_steps=11 format=2]
+[gd_resource type="AudioBusLayout" load_steps=12 format=2]
+
+[sub_resource type="AudioEffectStereoEnhance" id=11]
+resource_name = "StereoEnhance"
+pan_pullout = 4.0
+time_pullout_ms = 3.2
 
 [sub_resource type="AudioEffectNotchFilter" id=1]
 resource_name = "NotchFilter"
@@ -48,6 +53,8 @@ pan_pullout = 4.0
 time_pullout_ms = 3.2
 
 [resource]
+bus/0/effect/0/effect = SubResource( 11 )
+bus/0/effect/0/enabled = true
 bus/1/name = "DownSoft"
 bus/1/solo = false
 bus/1/mute = false

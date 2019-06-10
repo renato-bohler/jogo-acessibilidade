@@ -10,6 +10,8 @@ func _init(player_body: KinematicBody2D):
 	self.player_body = player_body
 	self.player = preload("res://player/Player.gd").new()
 	Networking.connect("new_position", self, "on_viewing_new_position")
+	self.player_body.camera_hearing.rotating = true
+	self.player_body.camera_hearing.current = true
 
 func execute(delta):
 	var indication_action: ListenerPlayerActions = self.player_body.listenerPlayerIndication.get_indication()
@@ -27,13 +29,8 @@ func update_position(delta):
 		return
 		
 	self.update_player()
-	self.update_player_body_state(delta)
 	
 func update_player():
 	self.player_body.position = self.seeing_player_position
-	self.player.rotation = self.seeing_player_rotation
-
-func update_player_body_state(delta):
-	var move_vec = self.player.movement.normalized()
-	self.player_body.move_and_collide(move_vec * self.player.move_speed * delta)
 	self.player_body.global_rotation_degrees = self.player.rotation
+	self.player.rotation = self.seeing_player_rotation

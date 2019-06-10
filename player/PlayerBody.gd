@@ -5,8 +5,9 @@ class_name PlayerBody
 var mechanics_instance
 var player_animation
 var player_mode
-onready var listenerPlayerIndication = get_node("ListenerPlayerIndication")
+onready var listenerPlayerIndication = $ListenerPlayerIndication
 onready var animation_sprite = get_node("PlayerVisionMoveAnimation")
+onready var camera_hearing = get_node("CameraHearing")
 
 var hasKey
 

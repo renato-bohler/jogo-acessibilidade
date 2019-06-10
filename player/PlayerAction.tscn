@@ -2,18 +2,18 @@
 
 [ext_resource path="res://player/PlayerBody.gd" type="Script" id=1]
 [ext_resource path="res://player/ListenerPlayerIndication.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Player/sprites/right-2.png" type="Texture" id=3]
-[ext_resource path="res://assets/Player/sprites/right-3.png" type="Texture" id=4]
-[ext_resource path="res://assets/Player/sprites/front-1.png" type="Texture" id=5]
-[ext_resource path="res://assets/Player/sprites/front-2.png" type="Texture" id=6]
-[ext_resource path="res://assets/Player/sprites/front-3.png" type="Texture" id=7]
-[ext_resource path="res://assets/Player/sprites/right-1.png" type="Texture" id=8]
-[ext_resource path="res://assets/Player/sprites/back-1.png" type="Texture" id=9]
-[ext_resource path="res://assets/Player/sprites/left-2.png" type="Texture" id=10]
-[ext_resource path="res://assets/Player/sprites/left-3.png" type="Texture" id=11]
-[ext_resource path="res://assets/Player/sprites/left-1.png" type="Texture" id=12]
-[ext_resource path="res://assets/Player/sprites/back-2.png" type="Texture" id=13]
-[ext_resource path="res://assets/Player/sprites/back-3.png" type="Texture" id=14]
+[ext_resource path="res://assets/Player/sprites/back-1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Player/sprites/left-2.png" type="Texture" id=4]
+[ext_resource path="res://assets/Player/sprites/left-3.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/sprites/left-1.png" type="Texture" id=6]
+[ext_resource path="res://assets/Player/sprites/back-2.png" type="Texture" id=7]
+[ext_resource path="res://assets/Player/sprites/back-3.png" type="Texture" id=8]
+[ext_resource path="res://assets/Player/sprites/front-1.png" type="Texture" id=9]
+[ext_resource path="res://assets/Player/sprites/front-2.png" type="Texture" id=10]
+[ext_resource path="res://assets/Player/sprites/front-3.png" type="Texture" id=11]
+[ext_resource path="res://assets/Player/sprites/right-1.png" type="Texture" id=12]
+[ext_resource path="res://assets/Player/sprites/right-2.png" type="Texture" id=13]
+[ext_resource path="res://assets/Player/sprites/right-3.png" type="Texture" id=14]
 [ext_resource path="res://player/PlayerVisionMoveAnimation.gd" type="Script" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -24,44 +24,44 @@ extents = Vector2( 12.6491, 10 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "running_right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "idle_front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "running_down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "idle_right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle_back",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "running_left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "idle_left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "running_up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "idle_front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "running_down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "idle_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "running_right",
 "speed": 5.0
 } ]
 
@@ -117,3 +117,5 @@ audio_bus_name = "DownHard"
 [node name="SoftCollision" type="CollisionShape2D" parent="DownHard"]
 scale = Vector2( 6, 40 )
 shape = SubResource( 6 )
+
+[node name="CameraHearing" type="Camera2D" parent="."]

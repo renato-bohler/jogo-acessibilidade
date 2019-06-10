@@ -1,6 +1,6 @@
 extends Node
 
-const DEFAULT_MOVE_SPEED = 300
+const DEFAULT_MOVE_SPEED = 150
 const ROTATION_STEP_DEGREES = 15
 
 class_name Player
