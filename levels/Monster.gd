@@ -10,3 +10,4 @@ func _physics_process(delta):
 			SceneChanger.change_scene(death_scene)
 			Networking.sync_scene(death_scene)
 			changed = true
+			body.isDead = true
