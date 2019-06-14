@@ -45,19 +45,13 @@ format = 1
 tile_data = PoolIntArray( 65537, -1073741814, 0, 65538, 1, 0, 65544, -1073741814, 0, 65545, 1, 0, 65546, 1, 0, 65549, 1, 0, 131073, 1, 0, 131074, -1073741813, 0, 131078, -1073741813, 0, 131080, 1, 0, 131081, -1073741813, 0, 131085, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, -1073741814, 0, 196621, 1, 0, 393226, -1073741813, 0, 458761, 1, 0, 458762, -1073741813, 0, 458763, 1, 0, 458764, 1, 0, 524296, -1073741813, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 589831, 1, 0, 589832, -1073741814, 0, 589833, 1, 0, 589834, -1073741813, 0, 589835, -1073741814, 0, 589836, 1, 0, 589837, -1073741813, 0, 589838, 1, 0, 655366, 1, 0, 655367, -1073741813, 0, 655368, -1073741814, 0, 655369, -1073741814, 0, 655370, 1, 0, 655371, -1073741813, 0, 655372, 1, 0, 655373, 1, 0, 655374, -1073741814, 0 )
 
 [node name="Monster" parent="TileMapLvl2" instance=ExtResource( 2 )]
-position = Vector2( 343.674, 231.98 )
+position = Vector2( 263.871, 337.565 )
 
 [node name="Monster2" parent="TileMapLvl2" instance=ExtResource( 2 )]
 position = Vector2( 599.997, 412.408 )
 
 [node name="Monster3" parent="TileMapLvl2" instance=ExtResource( 2 )]
-position = Vector2( 800.473, 221.956 )
-
-[node name="Monster4" parent="TileMapLvl2" instance=ExtResource( 2 )]
-position = Vector2( 899.279, 453.936 )
-
-[node name="Monster5" parent="TileMapLvl2" instance=ExtResource( 2 )]
-position = Vector2( 343.674, 472.551 )
+position = Vector2( 705.937, 155.658 )
 
 [node name="Walls" type="KinematicBody2D" parent="TileMapLvl2"]
 editor/display_folded = true

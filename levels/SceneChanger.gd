@@ -8,6 +8,12 @@ onready var black = $Control/Black
 # Determines if the player is playing on vision or hearing mode
 var hearing_mode = true;
 
+func _ready():
+	Networking.connect("sync_scene", self, "_on_sync_scene")
+	
+func _on_sync_scene(scene):
+	change_scene(scene)
+
 func change_scene(path, delay=0.2):
 	yield(get_tree().create_timer(delay), "timeout")
 	animation_player.play("Fade Out")

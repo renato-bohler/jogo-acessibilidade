@@ -8,6 +8,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -4.08111
 margin_right = -4.08112
+mouse_filter = 2
 
 [node name="Menu" type="VBoxContainer" parent="."]
 margin_left = 120.0

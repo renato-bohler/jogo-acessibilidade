@@ -3,6 +3,9 @@ extends Control
 onready var speaker = get_node("/root/Speaker")
 
 func _ready():
+	# Quit any connection that might be hanging there
+	Networking.quit_game()
+	
 	# Connect every press event to change scene accordingly
 	for button in $Menu/CenterRow/Buttons.get_children():
 		button.connect("pressed", self, "_on_Button_pressed", [button.scene_to_load])
@@ -10,6 +13,8 @@ func _ready():
 	# Focus the first button on the menu
 	var focus = $Menu/CenterRow/Buttons/PlayButton
 	focus.grab_focus()
+	
+	self.move_child($Menu, -99999)
 	
 	# Play the title sound and wait
 	speaker.play_sound("titlescreen_title")
