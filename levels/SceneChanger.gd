@@ -25,3 +25,7 @@ func change_scene(path, delay=0.2):
 
 func set_hearing_mode(hearing):
 	hearing_mode = hearing
+	if hearing:
+		SoundNavigation.get_node("BackgroundMusic").set_volume_db(-40)
+	else:
+		SoundNavigation.get_node("BackgroundMusic").set_volume_db(-25)
