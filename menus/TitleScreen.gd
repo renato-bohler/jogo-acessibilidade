@@ -14,8 +14,6 @@ func _ready():
 	var focus = $Menu/CenterRow/Buttons/PlayButton
 	focus.grab_focus()
 	
-	self.move_child($Menu, -99999)
-	
 	# Play the title sound and wait
 	speaker.play_sound("titlescreen_title")
 	yield(speaker, "finished")
