@@ -13,6 +13,9 @@ func _init(player_body: KinematicBody2D):
 	self.player_body.camera_hearing.rotating = true
 	self.player_body.camera_hearing.current = true
 
+func _exit_tree():
+	self.player.queue_free()
+
 func execute(delta):
 	var indication_action: ListenerPlayerActions = self.player_body.listenerPlayerIndication.get_indication()
 	Networking.send_warning(indication_action)

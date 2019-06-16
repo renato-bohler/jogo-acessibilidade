@@ -25,6 +25,12 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	get_tree().call_group("monster", "set_player", self)
 	
+func _exit_tree():
+	queue_free()
+	self.mechanics_instance.queue_free()
+	self.player_animation.queue_free()
+	self.player_mode.queue_free()
+	
 func _physics_process(delta):
 	if (not isDead):
 		player_mode.execute(delta)
