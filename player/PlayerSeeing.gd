@@ -10,6 +10,9 @@ func _init(player_body: KinematicBody2D):
 	self.player_body.camera_hearing.rotating = false
 	self.player_body.camera_hearing.current = false
 
+func _exit_tree():
+	self.player.queue_free()
+
 func execute(delta):
 	self.player = self.player_body.mechanics_instance.handle_movement(self.player)
 	self.player_body.player_animation.handle_animation(self.player, self.player_body.animation_sprite)
@@ -20,10 +23,4 @@ func execute(delta):
 	Networking.update_position(self.player_body.position, self.player.rotation)
 
 func on_hearing_indication(action):
-	if !is_instance_valid(self.player_body):
-		return
-	
-	if !is_instance_valid(self.player_body.listenerPlayerIndication):
-		return
-		
 	self.player_body.listenerPlayerIndication.show_indication(action)
