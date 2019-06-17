@@ -67,12 +67,15 @@ tile_data = PoolIntArray( 131073, -1610612725, 0, 131076, -1610612735, 0, 131077
 
 [node name="Monster" parent="TileMapLvl2" instance=ExtResource( 2 )]
 position = Vector2( 737.466, 222.604 )
+monster_audio = "03"
 
 [node name="Monster2" parent="TileMapLvl2" instance=ExtResource( 2 )]
 position = Vector2( 222.772, 223.939 )
+monster_audio = "02"
 
 [node name="Monster3" parent="TileMapLvl2" instance=ExtResource( 2 )]
 position = Vector2( 490.005, 267.855 )
+monster_audio = "01"
 
 [node name="Door" parent="TileMapLvl2" instance=ExtResource( 3 )]
 position = Vector2( 64.4653, -447.489 )

@@ -76,6 +76,7 @@ position = Vector2( 64.6794, 0.466797 )
 
 [node name="Monster" parent="TileMapLvl2" instance=ExtResource( 4 )]
 position = Vector2( 430.732, 224.778 )
+monster_audio = "01"
 
 [node name="PlayerBody" parent="." instance=ExtResource( 5 )]
 editor/display_folded = true

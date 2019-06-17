@@ -46,12 +46,15 @@ tile_data = PoolIntArray( 65537, -1073741814, 0, 65538, 1, 0, 65544, -1073741814
 
 [node name="Monster" parent="TileMapLvl2" instance=ExtResource( 2 )]
 position = Vector2( 263.871, 337.565 )
+monster_audio = "02"
 
 [node name="Monster2" parent="TileMapLvl2" instance=ExtResource( 2 )]
 position = Vector2( 599.997, 412.408 )
+monster_audio = "03"
 
 [node name="Monster3" parent="TileMapLvl2" instance=ExtResource( 2 )]
 position = Vector2( 705.937, 155.658 )
+monster_audio = "01"
 
 [node name="Walls" type="KinematicBody2D" parent="TileMapLvl2"]
 editor/display_folded = true
