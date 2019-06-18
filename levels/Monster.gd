@@ -6,10 +6,10 @@ var death_scene = "res://menus/play/Death.tscn"
 var changed = false
 
 func _ready():
-	print("res://assets/sounds/monster/monster_%s.ogg" % monster_audio)
-	var vstream = load("res://assets/sounds/monster/monster_%s.ogg" % monster_audio)
-	$Voice.set_stream(vstream)
-	$Voice.play()
+	if (SceneChanger.hearing_mode):
+		var vstream = load("res://assets/sounds/monster/monster_%s.ogg" % monster_audio)
+		$Voice.set_stream(vstream)
+		$Voice.play()
 
 func _physics_process(delta):
 	var bodies = $Hitbox.get_overlapping_bodies()
