@@ -1,4 +1,4 @@
-extends ColorRect
+extends TextureRect
 
 func _ready():
 	if (SceneChanger.hearing_mode):
