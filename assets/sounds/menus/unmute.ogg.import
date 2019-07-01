@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/unmute.ogg-123a9b014bc53d541a6feac275a60abd.oggstr"
+
+[deps]
+
+source_file="res://assets/sounds/menus/unmute.ogg"
+dest_files=[ "res://.import/unmute.ogg-123a9b014bc53d541a6feac275a60abd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

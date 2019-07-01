@@ -1,0 +1,59 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "ListenerPlayerActions",
+"language": "GDScript",
+"path": "res://player/ListenerPlayerActions.gd"
+}, {
+"base": "Node",
+"class": "Player",
+"language": "GDScript",
+"path": "res://player/Player.gd"
+}, {
+"base": "Node",
+"class": "PlayerActions",
+"language": "GDScript",
+"path": "res://player/PlayerActions.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "PlayerBody",
+"language": "GDScript",
+"path": "res://player/PlayerBody.gd"
+} ]
+_global_script_class_icons={
+"ListenerPlayerActions": "",
+"Player": "",
+"PlayerActions": "",
+"PlayerBody": ""
+}
+
+[application]
+
+config/name="jogo-acessibilidade"
+run/main_scene="res://menus/TitleScreen.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Speaker="*res://menus/Speaker.tscn"
+SoundNavigation="*res://menus/SoundNavigation.tscn"
+Networking="*res://networking/networking.gd"
+SceneChanger="*res://levels/SceneChanger.tscn"
+
+[display]
+
+window/size/height=768
+
+[rendering]
+
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+environment/default_environment="res://default_env.tres"
